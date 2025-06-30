@@ -1,7 +1,6 @@
+# Method: Use a hash map to count the frequency of each number, then check for pairs that differ by 1.
 from typing import List
 import collections
-# Method: Use a hash map to count the frequency of each number, then check for pairs that differ by 1.
-
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
         freq_map = collections.Counter(nums)
