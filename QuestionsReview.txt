@@ -1,1 +1,58 @@
-Some question connected with ML
+Study nots on Anomaly Detecion
+
+2025-07-11 📖 Anomaly Detection 学习
+
+峰度 Kurtosis & 偏度 skewness的定义和意义:
+
+Kurtosis  < 0 means the shape is flatter than the normal distribution.
+K > 0 means the shape is thinner compared to the normal distribution.
+K ~= 0 close to normal distribution.
+S ~= 0 close to normal distribution
+S>0: longer trail on right. Max on left compared to normal distribution.
+S <0: longer trail on left. Max on right compared to normal distribution.
+
+学会了区分 kurtosis 和 skewness 在形态上的含义。
+
+学习了几个算法名字: Forest tree, Cluster-based Local Outlier Factor (CBLOF), Histogram-based Outlier Detection(HBOS), K - Nearest Neighbors (KNN)
+
+会用库去实现（但数理推导不熟）
+
+
+知道判断数据分布的基本统计量
+
+🔧 建议：
+
+明天可以补充一下：什么时候选哪种方法？这些方法的优缺点？
+比如：
+
+z-score: 只适合单峰、近似正态
+
+Isolation Forest: 快速、适合大数据、但对局部结构敏感
+
+LOF: 能发现局部密度低的点
+
+HBOS: 快、简单，但维度高时不好
+
+KNN: 慢，但直观
+
+
+计算每个特征的z-score并标出异常值的样本行
+
+🎯 🧩 SQL 刷题
+✅ #175 和 #181 顺利
+✅ #196 碰到 delete 不熟
+
+📌 建议：
+
+明天把 delete 和 join 的写法再巩固一下
+
+可以试试窗口函数的简单用法（比如 rank / dense_rank）
+
+🎯 🧩 Python 刷题
+✅ #1 和 #9 都能一次写出逻辑，非常棒
+✅ 知道用 hash map 解决 Two Sum
+✅ 知道转字符串判断回文
+
+📌 建议：
+
+明天可以尝试一个动态规划的简单题 (#53) 和一个滑动窗口 (#121)
