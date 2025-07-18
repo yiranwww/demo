@@ -43,7 +43,13 @@
 ## 🔁 Day1 & Day2 知识复习
 | 知识点 | 总结 |
 |-------|-------|
-| **Anomaly Detection** | |
+| **Anomaly Detection** |区别峰度（Kurtosis）和偏度（skewness）
+Kurtosis < 0 means the shape is flatter than the normal distribution.
+K > 0 means the shape is thinner compared to the normal distribution.
+K ~= 0 close to normal distribution.
+S ~= 0 close to normal distribution
+S>0: longer trail on right. Max on left compared to normal distribution.
+S <0: longer trail on left. Max on right compared to normal distribution.
 | **Z-score** | |
 | **SQL基础** | |
 | **Python刷题** | |
