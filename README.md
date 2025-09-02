@@ -1,3 +1,5 @@
-# Number of Probs
-0125: valid Palindrome
-0594: Longest harmonious subsequence: sorting or hash map
+# [Leetcode Exercise](https://github.com/yiranwww/demo/tree/main/Leetcode)
+
+# [DeepML Exercise](https://github.com/yiranwww/demo/tree/main/Deep_ML)
+
+# [Some additional points](https://github.com/yiranwww/demo/tree/main/Notes) 
