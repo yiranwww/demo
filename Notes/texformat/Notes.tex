@@ -4,7 +4,7 @@
 
 \usepackage[utf8]{inputenc}   % encoding
 \usepackage{amsmath}          % math support
-
+\usepackage {ctex}             % support Chinese
 \title{My Notes}
 \author{Yiran Wang}
 \date{\today}
@@ -13,13 +13,18 @@
 
 \maketitle
 
-\section{Test}
-To calibrate the camera, we can use a checkerboard pattern. The checkerboard
-pattern shall not be square so that the pattern contains two black corners on
-one side and two white corners on the opposite side. This helps to determine
-the orientation of the pattern. The calibrator assigns the longer side as
-x-direction. In our case, we download 20 images and numbered them. The size of
-the checkboard pattern we used is $14\times 13$, so the coordinate set as the
-form $13 \times 12$-$x y$ coordinate. 
+\section{Anomaly Detection}
+Definitino of 峰度 (Kurtosis) \& 偏度 (skewness):
+\begin{itemize}
+    \item $K < 0$: means the shape is flatter than the normal distribution.
+    \item $K > 0$ means the shape is thinner compared to the normal distribution.
+    \item $K ~= 0$: close to normal distribution.
+   
+    \item $S > 0$: longer trail on right. Max on left compared to normal distribution.
+    \item $S < 0$: longer trail on left. Max on right compared to normal distribution.
+    \item $S ~= 0$:  close to normal distribution
+    
+\end{itemize}
+
 
 \end{document}
