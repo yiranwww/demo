@@ -1,0 +1,187 @@
+% !TeX root = Notes.tex
+
+\documentclass{article}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1in, bottom=1in, left=1.in, right=1.in]{geometry} % adjust default margins
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Yiran Wang}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
+\setlength{\parindent}{0em}\setlength{\parskip}{1.5ex} % use newline to seperate paragraphs
+\usepackage[T1]{fontenc}     % oriented to output, that is, what fonts to use for printing characters % [must use] make ligatures copyable
+\usepackage{enumitem} %\setlist[itemize]{noitemsep,nolistsep} % same to use \begin{itemize}[nolistsep,noitemsep]
+\usepackage[ampersand]{easylist} % ampersand == & % \begin{easylist}[itemize] %% to make easy list environment
+\usepackage{amsmath,amssymb,bm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,breaklinks=true]{hyperref} % color the hyperlink rather than box it
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[all]{hypcap} % make the hyperlink to point at the upper border of a figure of table, rather than to point to its caption.
+\usepackage{breakcites}
+\usepackage{cleveref} \crefname{equation}{Eq.}{Eqs.} \Crefname{equation}{Equation}{Equations} \crefname{figure}{Fig.}{Figs.} \Crefname{figure}{Figure}{Figures} \crefname{table}{Table}{Tables} % allow refer to multiple equations and change cross-reference name
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{wasysym} % to insert emotion \smiley
+\usepackage{float} 
+\usepackage[yyyymmdd,hhmmss]{datetime}\renewcommand{\dateseparator}{-}
+\usepackage{placeins}
+%\usepackage{setspace} \doublespacing \onehalfspacing % 调整行距
+%\usepackage{pdflscape} \horizontal figure
+\usepackage{ulem}
+\usepackage{mathtools}
+\urlstyle{same}
+%\graphicspath{ {./Test_01/} }
+\bibliographystyle{abbrv}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\phSay}[1]{\textcolor{blue}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Ads Notes}
+\author{$:)$}
+\date{Updated on \today}
+
+\begin{document}
+\maketitle
+\section{OCPX}
+广告变现：本质是“用户流量换取广告主付费”。通过精准触达目标用户，实现转化并收取广告费。
+
+OCPX: Optimized Cost Per X. 为了让广告系统持续优化转化效果，把用户的转化数据回传给广告平台。
+
+CPX: Cost per X, X can be click, install, purchase, lead, etc. CPC 点击。 CPA 安装。 CPI 购买。 CPL 潜在客户。
+
+oCPX: Optimized Cost per X. 智能出价模式。通过机器学习算法，自动优化广告投放，提升转化率。以更低成本获得更多转化。
+
+\begin{itemize}
+    \item CPM: Cost per Mille, 每千次展示费用。按曝光量计费。
+    \begin{itemize}
+        \item 优：适合品牌曝光，快速触达大规模用户。计算逻辑简单，便于广告主预算规划
+        \item 缺：无法保证点击和转化，效果难以量化。易被工具屏蔽。
+    \end{itemize}
+
+    \item CPC: Cost per Click, 每次点击费用。按点击量计费。典型例子：搜索广告（百度，Google），信息流广告（今日头条，Facebook）
+    \begin{itemize}
+        \item 优：按点击付费，风险较低。适合引导用户访问网站或App。广告主只为兴趣买单，ROI可控，适合明确转化目标
+        \item 缺：点击不等于转化，可能存在无效点击。对广告创意和落地页要求高，需要精确匹配受众。易被恶意点击
+    \end{itemize}
+
+    \item 转化广告:
+    
+    CPA (Action):按完成特定动作计算（注册、下载、购买等）。典型例子：电商平台（淘宝，亚马逊），应用商店（App Store，Google Play）
+    
+    CPS（Sale）: 按销售额的一定比例计费。适合电商平台，风险低，效果可量化
+
+    CPL（Lead）：按获取潜在客户计费（用户提交表单或留下联系方式）。适合B2B业务，风险低，效果可量化
+    \begin{itemize}
+        \item 优：导向强，风险小，可通过算法优化。适合有明确转化目标的广告主。ROI高，预算利用率高
+        \item 缺：需要精确归因能力，初期样本不足，转换慢，对广告创意和落地页要求高
+    \end{itemize}
+
+    \item 原生广告 + 内容营销（小红书）
+    \begin{itemize}
+        \item 优： 用户接受度高，干扰度低，对品牌故事产品口碑建设有效。
+        \item 缺： 内容成本高，转化链路长，效果衡量复杂
+    \end{itemize}
+
+    \item  程序化广告 + RTB(Real Time Bidding 实时竞价)
+    \begin{itemize}
+        \item 优：精准投放，按用户画像和行为实时出价，提高广告库存利用率
+        \item 缺：技术和数据依赖度高，数据隐私可能影响可用性
+
+\end{itemize}
+
+
+
+\section{回传}
+
+\subsection{回传策略}
+\begin{itemize}
+    \item 哪些事件：
+    \begin{itemize}
+        \item 重要事件：购买、注册、下单、支付、激活等
+        \item 次要事件：加购、浏览、搜索等
+        \item 主次转化：eg, 以“付费”为目标， 或“注册”为辅助信号
+        \end{itemize}
+    \item 时间策略：
+    \begin{itemize}
+        \item 实时： 发生行为立即上报，利于模型调整
+        \item 延迟：反作弊或隐私保护
+        \item 批量：定时把一定时间内的数据打包上报
+    \end{itemize}
+\end{itemize}
+
+\subsection{回传方式}
+\begin{itemize}
+    \item 客户端SDK集成：在App或网站中集成广告平台的SDK，自动收集和上报数据
+    \item API接口（server-to-server: S2S)：通过调用广告平台提供的API接口，手动上报。最稳定，适合跨平台，app端
+    \item 离线文件（eg：门店消费）：定期生成包含转化数据的文件，上传到广告平台
+\end{itemize}
+
+\subsection{回传数据质量要求}
+\begin{itemize}
+    \item 唯一事件ID：每个转化事件需有唯一标识，避免重复计数
+    \item 时间戳：准确记录事件发生时间，便于归因和分析
+    \item 事件类型：明确区分不同类型的转化事件
+    \item 用户匹配参数：如IDFA、GAID、手机号等，确保能匹配到正确用户
+    \item 完整性：确保所有重要事件都被回传，避免数据遗漏
+    \item 及时性：数据应尽可能实时回传，减少延迟
+\end{itemize}
+
+\subsection{频率与比例}
+\begin{itemize}
+    \item 只传部分事件（防止过拟合），或只传高质量转化（高客单价付费）
+    \item “漏斗回传”：只传最终转化事件，或传主要+次要事件。先注册，再付费。
+\end{itemize}
+
+\subsection{流程}
+\begin{enumerate}
+    \item 起量期： 上传优化，保证足够多样本量，优先积累数据。
+    \item 稳定期：切换到核心事件（付费，留存）。保留部分辅助事件（注册，浏览）回传。可适度延迟，减少作弊风险。
+    \item 防作弊期：延迟回传高价值转化，S2S回传+数据脱敏
+    \item 多媒体投放：不同媒体设置差异化策略
+\end{enumerate}
+
+
+\section{评价广告差评的核心竞争力}
+\begin{itemize}
+    \item 流量与用户的价值
+    \item 广告效果与转化能力 -- 市场
+    \item 产品矩阵与广告形态 -- 产品
+    \item 平台能力与运营服务 --商业
+    \item 商业模式与价格策略
+    \item 合规性与行业趋势
+\end{itemize}
+
+高效投放策略： 
+
+目标（Why） -- 数据（What，Where） -- 策略（What, How） -- 执行（When） -- 优化（track）
+
+ads network: 流量批发商，把多个媒体的广告位整合起来，打包卖给广告主或代理商。会对广告库做分类（行业，地域，受众），方便购买
+
+SSP： supply side platform.  供给方平台。帮助媒体卖广告位。管理和优化广告库存，连接多个广告网络和DSP
+
+ADX: Ad Exchange. 广告交易平台。实时竞价买卖广告位。连接SSP和DSP
+
+聚合广告： Ad mediation. 通过一个平台管理多个广告网络。优化收益和填充率
+ 
+流程：
+
+媒体（APP/网站） -- SSP/ADX -- DSP/广告网络 -- 广告主/代理商
+
+
+\section{广告收入计算}
+
+\subsection{CPM}
+
+\begin{equation}
+    Actual Revenue = (PV \times Fill Rate \times (1 - Discount Rate)) \times CPM \times 100\%
+    \label{eq:CPM}
+\end{equation}
+
+ 实际收入 $= (PV \times$ 填充率 $\times (1 - $折损率$)) \times COM * 100\% $
+
+ 理解： 100次广告请求中80次成功展示，填充率（Fill  Rate）为80\%.
+ 
+
+
+
+% \bibliography{reference}
+\end{document}
