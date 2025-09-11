@@ -36,7 +36,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Ads Notes}
-\author{$:)$}
+\author{\mathfrak{Y} \mathfrak{R} }
 \date{Updated on \today}
 
 \begin{document}
@@ -85,6 +85,7 @@ oCPX: Optimized Cost per X. 智能出价模式。通过机器学习算法，自�
     \begin{itemize}
         \item 优：精准投放，按用户画像和行为实时出价，提高广告库存利用率
         \item 缺：技术和数据依赖度高，数据隐私可能影响可用性
+    \end{itemize}
 
 \end{itemize}
 
@@ -169,19 +170,88 @@ ADX: Ad Exchange. 广告交易平台。实时竞价买卖广告位。连接SSP�
 
 \section{广告收入计算}
 
-\subsection{CPM}
+\subsection{CPM： Cost Per Mile. 千次曝光量计费}
+
 
 \begin{equation}
-    Actual Revenue = (PV \times Fill Rate \times (1 - Discount Rate)) \times CPM \times 100\%
+        \text{Actual Revenue} 
+    = ( PV \times \text{Fill Rate} \times (1 - \text{Discount Rate})) 
+      \times CPM \times 100\%
     \label{eq:CPM}
 \end{equation}
 
- 实际收入 $= (PV \times$ 填充率 $\times (1 - $折损率$)) \times COM * 100\% $
+ 实际收入 $= (PV \times$ 填充率 $\times$ (1 - 折损率)) $\times$ $CPM * 100\% $
 
- 理解： 100次广告请求中80次成功展示，填充率（Fill  Rate）为80\%.
+ 理解： 
+ 
+ 100次广告请求中80次成功展示，填充率（Fill  Rate）为80\%.
+ 
+ 折损率：广告加载失败（技术原因为主）约 5-10\%.
+ 
+ eg: 某app广告位每天有100万次广告请求。 填充率70\%, 折损率10\%. CPM 单位5.
+
+ 实际展示量 $100,0000 \times 70\% \times (1 - 10\%) = 63,0000$ （次）.
+
+ 收入： $ (63,0000 / 1000) \times 5 = 3150$ 
  
 
+ \subsection{CPC: Cost Per Click. 点击率付费}
+ 实际收入 $= (PV \times$ 填充率 $\times$ CTR $\times$ (1 - 折损率)) $\times$ $CPC * 100\% $
 
+填充率$\downarrow \rightarrow$ 可展示广告量 $\downarrow \rightarrow$ 总点击量 $\downarrow \rightarrow$ 收入 $\downarrow$ 
+
+eg:
+
+信息流广告日均50万次请求。填充率$80\%$，折损率$8\%$, CTR $\%2$, CPC 单价0.3.
+
+有效展示量： 50,0000 $\times$ $80\%$ $\times$ (1 - 8\%) = 368, 000
+
+点击量： 368,000 $\times 2\%$  = 7360
+
+收入： 7360 $\times$ 0.3 = 2208
+
+
+\subsection{CPA: Cost Per Action}
+ 实际收入 $= (PV \times$ 填充率 $\times$ CTR $\times$ CVR $\times$(1 - 折损率)) $\times$ $CPA * 100\% $
+
+ CVR: 转化率
+
+eg：
+200万次广告请求。填充率$65\%$，折损率$12\%$, CTR $1.5\%$, CVR $5\%$, CPA 单价10.
+
+有效展示量： 200,0000 $\times 60\% \times (1-12\%) = 1,144,000$
+
+点击量： 1,144,000 $\times 1.5\% = 17160$
+
+转化量： 17160 $ \times 5\% = 858$
+
+收入： 858 $\times$ 10 = 8580
+
+
+\subsection{CPT: Cost per Time. 按时间付费}
+填充率与折损率由媒体承担（合约保量），广告主按固定时间付费，但媒体需要保证填充率达标。
+
+媒体侧隐形成本： 若填充率不足，会浪费剩余流量或低价填充。
+
+eg：
+
+广告合约保证100万次展示。 实际填充率$90\%$, 折损率$10\%$, CPT单价8000/天。补偿条款：未达展示量按CPM=3补足。
+
+实际展示量： $100,0000 \times 90\% \times (1-10\%) = 810,000$
+
+差额量： 100,0000 - 810,000 = 190,000 次 
+
+补偿成本： $(190,000 / 1000) * 3 = 570$ 
+
+媒体最终收入： 8000 - 570 = 7430
+
+\subsection{广告竞价 eCPM： 预估千次展示收益}
+
+eCPM = 商家出价  $\times$ 预估点击率 CTR $\times$ 预估转化率 CVR $\times$ 1000
+
+ $eCPM \varpropto \text{Price} \times CTR \times CVR$ 
+
+平台根据eCPM高低排序，决定广告展示顺序。
 
 % \bibliography{reference}
 \end{document}
