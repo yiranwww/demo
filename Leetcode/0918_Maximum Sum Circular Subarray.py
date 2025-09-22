@@ -33,18 +33,32 @@
 
 class Solution:
     def maxSubarraySumCircular(self, A):
-        if max(A) < 0:
-            return max(A)
+        # if max(A) < 0:
+        #     return max(A)
         
-        max_sum = cur_max = min_sum = cur_min = A[0]
-        for i in range(1, len(A)):
-            cur_max = max(A[i], cur_max + A[i])
-            max_sum = max(max_sum, cur_max)
+        # max_sum = cur_max = min_sum = cur_min = A[0]
+        # for i in range(1, len(A)):
+        #     cur_max = max(A[i], cur_max + A[i])
+        #     max_sum = max(max_sum, cur_max)
 
-            cur_min = min(A[i], cur_min + A[i])
-            min_sum = min(min_sum, cur_min)
+        #     cur_min = min(A[i], cur_min + A[i])
+        #     min_sum = min(min_sum, cur_min)
         
-        return max(max_sum, sum(A)-min_sum)
+        # return max(max_sum, sum(A)-min_sum)
+         # Method 2 : Dynamic Programming
+        if max(A) <= 0:
+            return max(A)
+            
+        max_dp = [i for i in A]
+        min_dp = [i for i in A]
+        
+        for i in range(1,len(A)):
+            if max_dp[i-1] > 0:
+                max_dp[i] += max_dp[i-1]
+            if min_dp[i-1] < 0:
+                min_dp[i] += min_dp[i-1]
+
+        return max(max(max_dp), sum(A) - min(min_dp))
 
 
 
