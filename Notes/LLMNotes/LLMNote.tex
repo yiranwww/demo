@@ -6,7 +6,7 @@
 \usepackage[top=1in, bottom=1in, left=1.in, right=1.in]{geometry} % adjust default margins
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Yiran Wang}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
+\lhead{Yiran Wang}\chead{\reportNumber}\rhead{DayDayUp~}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
 \setlength{\parindent}{0em}\setlength{\parskip}{1.5ex} % use newline to seperate paragraphs
 \usepackage[T1]{fontenc}     % oriented to output, that is, what fonts to use for printing characters % [must use] make ligatures copyable
 \usepackage{enumitem} %\setlist[itemize]{noitemsep,nolistsep} % same to use \begin{itemize}[nolistsep,noitemsep]
@@ -28,11 +28,12 @@
 %\usepackage{pdflscape} \horizontal figure
 \usepackage{ulem}
 \usepackage{mathtools}
+\usepackage{longtable}
 \urlstyle{same}
 %\graphicspath{ {./Test_01/} }
 \bibliographystyle{abbrv}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\phSay}[1]{\textcolor{blue}{#1}}
+\newcommand{\yrSay}[1]{\textcolor{blue}{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{LLM Notes}
@@ -41,10 +42,11 @@
 
 \begin{document}
 \maketitle
-一些专业名词
-\begin{table}[h]
-    \caption{LLM}
-    \begin{tabular}{cp{5cm}p{9cm}}\toprule
+一些专业名词:
+
+
+    
+    \begin{longtable}{p{3cm}p{5cm}p{9cm}}\toprule
     \hline
 中文分词 & Chinese Word Segmentation, CWS & 处理中文文本时，由于词与词之间灭有明显分隔（空格），所以无法直接通过空格来确定词的边界。
                                             其目的是将连续的中文文本切分成有意义的词汇序列。 \\
@@ -59,10 +61,19 @@
                                                 通常依赖于机器学习模型，如隐马尔科夫模型(Hidden Markov Model HMM), 条件随机场（COnditional Random Field CRF),或RNN，LSTM等。
                                                 通过学习大量的标注数据来预测新句子中每个单词的词性。\\
 \hline
+文本分类 & Text Classfication & 将给定的文本自动分配到一个或多个预定义的类别中。应用包括但不限于情感分析，垃圾邮件检测，新闻分类，主题识别等。
+                                文本分类的关键在于理解文本的含义和上下文，并基于此将文本映射到特定的类别。
+                                文本分类的关键在于选择合适的特征表示和分类算法，以及拥有高质量的训练数据。\\
+\hline
+ 实体识别 (又名，命名实体识别) & Named Entity Recognition, NER & 自动识别文本中具有特定意义的实体，并将它们分类为预定的类别，如人名，地点，组织，日期，时间等。
+                                            实体识别任务对于信息提取，知识图谱构建，问答系统，内容推荐等应用很重要，它能够帮助系统理解文本中的关键元素及其属性。\\
 
-     \hline                                                                
-\end{tabular}
-\end{table}
+ \hline
+
+\hline  
+\caption{LLM}
+\end{longtable}
+
 
 % \bibliography{reference}
 \end{document}
