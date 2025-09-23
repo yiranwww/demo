@@ -1,0 +1,68 @@
+% !TeX root = Notes.tex
+
+\documentclass{article}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1in, bottom=1in, left=1.in, right=1.in]{geometry} % adjust default margins
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Yiran Wang}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
+\setlength{\parindent}{0em}\setlength{\parskip}{1.5ex} % use newline to seperate paragraphs
+\usepackage[T1]{fontenc}     % oriented to output, that is, what fonts to use for printing characters % [must use] make ligatures copyable
+\usepackage{enumitem} %\setlist[itemize]{noitemsep,nolistsep} % same to use \begin{itemize}[nolistsep,noitemsep]
+\usepackage[ampersand]{easylist} % ampersand == & % \begin{easylist}[itemize] %% to make easy list environment
+\usepackage{amsmath,amssymb,bm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,breaklinks=true]{hyperref} % color the hyperlink rather than box it
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[all]{hypcap} % make the hyperlink to point at the upper border of a figure of table, rather than to point to its caption.
+\usepackage{breakcites}
+\usepackage{cleveref} \crefname{equation}{Eq.}{Eqs.} \Crefname{equation}{Equation}{Equations} \crefname{figure}{Fig.}{Figs.} \Crefname{figure}{Figure}{Figures} \crefname{table}{Table}{Tables} % allow refer to multiple equations and change cross-reference name
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{wasysym} % to insert emotion \smiley
+\usepackage{float} 
+\usepackage[yyyymmdd,hhmmss]{datetime}\renewcommand{\dateseparator}{-}
+\usepackage{placeins}
+%\usepackage{setspace} \doublespacing \onehalfspacing % 调整行距
+%\usepackage{pdflscape} \horizontal figure
+\usepackage{ulem}
+\usepackage{mathtools}
+\urlstyle{same}
+%\graphicspath{ {./Test_01/} }
+\bibliographystyle{abbrv}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\phSay}[1]{\textcolor{blue}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{LLM Notes}
+\author{\mathfrak{Y} \mathfrak{R} }
+\date{Updated on \today}
+
+\begin{document}
+\maketitle
+一些专业名词
+\begin{table}[h]
+    \caption{LLM}
+    \begin{tabular}{cp{5cm}p{9cm}}\toprule
+    \hline
+中文分词 & Chinese Word Segmentation, CWS & 处理中文文本时，由于词与词之间灭有明显分隔（空格），所以无法直接通过空格来确定词的边界。
+                                            其目的是将连续的中文文本切分成有意义的词汇序列。 \\
+\hline
+子词切分 & Subword Segmentation           &   特别适合处理词汇稀疏的问题，即当遇到罕见词或者未见过的新词时，能够通过已知的子词单位来理解或生成这些词汇。
+                                            在处理拼写复杂，合成词多的语言（德语）或预训练语言模型（BERT，GPT）中尤为重要。
+                                            常用的方法有Byte Pair Encoding (BPE), WordPiece, Unigram, SentencePiece。\\                                                                 \\
+\hline
+词性标注 & Part of speech Tagging, POS Tagging & 为文本中的每一个单词分配一个词性标签，如名词动词形容词。 
+                                                POS tagging对理解句子结构，进行句法分析，语义角色标注等高级NLP任务至关重要。
+                                                计算机可以更好地理解文本的含义，进行信息提取，情感飞，机器翻译。。
+                                                通常依赖于机器学习模型，如隐马尔科夫模型(Hidden Markov Model HMM), 条件随机场（COnditional Random Field CRF),或RNN，LSTM等。
+                                                通过学习大量的标注数据来预测新句子中每个单词的词性。\\
+\hline
+
+     \hline                                                                
+\end{tabular}
+\end{table}
+
+% \bibliography{reference}
+\end{document}
