@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  24 SEP 2025 01:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  24 SEP 2025 04:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -933,8 +933,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.45 ‰
-      ∏Ä‰∫õ‰∏ì‰∏öÂêçËØç:
+l.45 
+     
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -945,17 +945,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.45 ‰
-      ∏Ä‰∫õ‰∏ì‰∏öÂêçËØç:
+l.45 
+     
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Trying to load font information for C70+rm on input line 45.
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 46.
 (C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fd\c70rm.fd
 File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
 )
-c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:49: Undefined control sequence.
-l.49 ...gin{longtable}{p{3cm}p{5cm}p{9cm}}\toprule
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:50: Undefined control sequence.
+l.50 \begin{longtable}{p{3cm}p{5cm}p{9cm}}\toprule
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -964,23 +964,53 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 1681) in paragraph at lines 51--51
+Underfull \hbox (badness 1681) in paragraph at lines 53--53
 []|\T1/cmr/m/n/10.53937 Chinese Word Seg-men-ta-tion,
  []
 
-Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 51.
+Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 53.
 
-Underfull \hbox (badness 2591) in paragraph at lines 68--68
+Underfull \hbox (badness 2591) in paragraph at lines 70--70
 []|\C70/rm/m/n/10.53937/5b û \C70/rm/m/n/10.53937/4f S \C70/rm/m/n/10.53937/8b ∆ \C70/rm/m/n/10.53937/52 + \T1/cmr/m/n/10.53937 (\C70/rm/m/n/10.53937/53 » \C70/rm/m/n/10.53937/54 ^^M|\C70/rm/m/n/10.53937/ff ^^L|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
+Underfull \hbox (badness 10000) in paragraph at lines 70--70
 []|\T1/cmr/m/n/10.53937 Named En-tity Recog-ni-tion,
  []
 
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:77: Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
+l.77 \hline
+           
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-Overfull \hbox (49.94182pt too wide) in alignment at lines 49--75
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:78: Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.78 Ê
+      ñáÊú¨ÊëòË¶Å & Text Summarization & ÁõÆÁöÑÊòØÁîüÊàê‰∏ÄÊÆµÂâ™ËæëÁúüÁ°ÆÁö...
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:78: Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.78 Ê
+      ñáÊú¨ÊëòË¶Å & Text Summarization & ÁõÆÁöÑÊòØÁîüÊàê‰∏ÄÊÆµÂâ™ËæëÁúüÁ°ÆÁö...
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 85--85
+[]|\T1/cmr/m/n/10.53937 Automatic Ques-tion An-swer-
+ []
+
+
+Overfull \hbox (49.94182pt too wide) in alignment at lines 50--91
  [] [] [] 
  []
 
@@ -990,22 +1020,62 @@ File: ctex-zhmap-windows.tex 2022/07/14 v2.5.10 Windows font map loader for pdfT
 
 ]
 
-c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:79: Undefined control sequence.
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:103: Undefined control sequence.
 \f@nch@och ->\reportNumber 
                            \strut 
-l.79 \end{document}
-                   
+l.103 
+      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[2] (LLMNote.aux)
+[2]
+
+LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 146.
+
+
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:154: Undefined control sequence.
+\f@nch@och ->\reportNumber 
+                           \strut 
+l.154     ‰∏ª
+             Ë¶Å‰∏§ÁßçÊû∂ÊûÑÔºö
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3]
+Overfull \hbox (14.50699pt too wide) in paragraph at lines 173--174
+\C70/rm/m/n/10.53937/8b Õ \C70/rm/m/n/10.53937/76 Ñ \C70/rm/m/n/10.53937/8b Õ \C70/rm/m/n/10.53937/54 ^^Q \C70/rm/m/n/10.53937/91 œ \C70/rm/m/n/10.53937/4f \ \C70/rm/m/n/10.53937/4e : \C70/rm/m/n/10.53937/65 ∞ \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/5f Å \C70/rm/m/n/10.53937/88 e \C70/rm/m/n/10.53937/51 E \C70/rm/m/n/10.53937/52 0 \C70/rm/m/n/10.53937/4e  \C70/rm/m/n/10.53937/6e 8 \C70/rm/m/n/10.53937/4e ˚ \C70/rm/m/n/10.53937/52 ° \C70/rm/m/n/10.53937/91 Õ|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/57 ˙ \C70/rm/m/n/10.53937/4e é\T1/cmr/m/n/10.53937 RNN\C70/rm/m/n/10.53937/76 Ñ\T1/cmr/m/n/10.53937 LSTM\C70/rm/m/n/10.53937/6a ! \C70/rm/m/n/10.53937/57 ã \C70/rm/m/n/10.53937/8b ≠ \C70/rm/m/n/10.53937/7e √ \C70/rm/m/n/10.53937/65 ˆ \C70/rm/m/n/10.53937/95 Ù ^^?|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/5f Å \C70/rm/m/n/10.53937/63 – \C70/rm/m/n/10.53937/53 ÷ \C70/rm/m/n/10.53937/66 /\T1/cmr/m/n/10.53937 ELMo\C70/rm/m/n/10.53937/6a !
+ []
+
+
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:180: Undefined control sequence.
+\f@nch@och ->\reportNumber 
+                           \strut 
+l.180 \end{document}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[4] (LLMNote.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.41063pt have occurred.
 
 
 Package rerunfilecheck Warning: File `LLMNote.out' has changed.
@@ -1014,20 +1084,20 @@ Package rerunfilecheck Warning: File `LLMNote.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `LLMNote.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             After:  96FD4C94B40F62F8F8BB9C809F276DC1;198.
  ) 
 Here is how much of TeX's memory you used:
- 20559 strings out of 468133
- 354568 string characters out of 5430713
- 788134 words of memory out of 5000000
- 48716 multiletter control sequences out of 15000+600000
- 656596 words of font info for 140 fonts, out of 8000000 for 9000
+ 20929 strings out of 468133
+ 360899 string characters out of 5430713
+ 800134 words of memory out of 5000000
+ 49023 multiletter control sequences out of 15000+600000
+ 670905 words of font info for 190 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,11n,83p,1105b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi627\ecrm1728.pk>
-Output written on LLMNote.pdf (2 pages, 378923 bytes).
+ 80i,12n,83p,1105b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\tcrm1000.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi753\ecbx1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi627\ecrm1728.pk><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on LLMNote.pdf (4 pages, 577097 bytes).
 PDF statistics:
- 408 PDF objects out of 1000 (max. 8388607)
- 4 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 581 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
