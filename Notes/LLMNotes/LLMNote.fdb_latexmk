@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758745615.83062 "c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex" "LLMNote.pdf" "LLMNote" 1758745621.98107 2
+["pdflatex"] 1758749506.43516 "c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex" "LLMNote.pdf" "LLMNote" 1758749508.71314 2
   "C:/Users/wyr95/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1757096033 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/wyr95/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1000.pk" 1757096035 23808 584e0a17ce93693b60753eab921eeb0a ""
   "C:/Users/wyr95/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi602/ecrm1200.pk" 1757096174 28560 17df631365905728d15d0bac3915f676 ""
@@ -259,8 +259,8 @@
   "C:/WINDOWS/Fonts/msyh.ttc" 1749057779 19704352 1e10e74402e59d54499af795caf0b135 ""
   "C:/WINDOWS/Fonts/simhei.ttf" 1711655640 9755440 983b60188a8e5a7c29c06c674f428b3d ""
   "C:/WINDOWS/Fonts/simsun.ttc" 1749057779 18070492 992f2bdc407dde6953c5ed83ceac9a91 ""
-  "LLMNote.aux" 1758745621 646 2fbb4b1dc6b49af87652884696d2840c "pdflatex"
-  "LLMNote.out" 1758745621 198 96fd4c94b40f62f8f8bb9c809f276dc1 "pdflatex"
+  "LLMNote.aux" 1758749507 646 2fbb4b1dc6b49af87652884696d2840c "pdflatex"
+  "LLMNote.out" 1758749507 198 96fd4c94b40f62f8f8bb9c809f276dc1 "pdflatex"
   "LLMNote.tex" 1758660283 12169 c6cba51295844eaf0805329e27c1a11b ""
   "c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex" 1758660283 12169 c6cba51295844eaf0805329e27c1a11b ""
   (generated)
