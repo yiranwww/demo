@@ -229,9 +229,6 @@ INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.enc
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.enc
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.chr
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.chr
-INPUT .\LLMNote.aux
-INPUT .\LLMNote.aux
-INPUT LLMNote.aux
 OUTPUT LLMNote.aux
 OUTPUT LLMNote.out
 OUTPUT LLMNote.pdf
@@ -414,9 +411,11 @@ INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unisong\u
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unihei\unihei63.tfm
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unihei\unihei78.tfm
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unihei\unihei81.tfm
+INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unisong\unisong85.tfm
 INPUT LLMNote.aux
 INPUT .\LLMNote.out
 INPUT .\LLMNote.out
+INPUT C:\WINDOWS\Fonts\simsun.ttc
 INPUT C:\WINDOWS\Fonts\simhei.ttf
 INPUT C:\WINDOWS\Fonts\simhei.ttf
 INPUT C:\WINDOWS\Fonts\simhei.ttf

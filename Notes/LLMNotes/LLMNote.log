@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  1 OCT 2025 12:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  2 OCT 2025 01:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,7 +760,8 @@ Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
 File: UTF8.enc 2021/10/16 4.8.5
 ) (C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
 File: UTF8.chr 2021/10/16 4.8.5
-) (LLMNote.aux)
+)
+No file LLMNote.aux.
 \openout1 = `LLMNote.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
@@ -845,7 +846,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1078,11 +1078,34 @@ Overfull \hbox (10.08932pt too wide) in paragraph at lines 200--203
  []
 
 
+Overfull \hbox (3.75156pt too wide) in paragraph at lines 211--213
+\C70/rm/m/n/10.53937/63 n \C70/rm/m/n/10.53937/4e - \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/67 Ð \C70/rm/m/n/10.53937/4e › \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/6b Š \C70/rm/m/n/10.53937/60 Å \C70/rm/m/n/10.53937/51 µ|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/59 ‚ \C70/rm/m/n/10.53937/58 k \C70/rm/m/n/10.53937/51 E |\C70/rm/m/n/10.53937/ff ^^H|\T1/cmr/m/n/10.53937 padding|\C70/rm/m/n/10.53937/ff 	| \C70/rm/m/n/10.53937/62 ^^V \C70/rm/m/n/10.53937/67 * e \C70/rm/m/n/10.53937/4f á \C70/rm/m/n/10.53937/60 o \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/5c O \C70/rm/m/n/10.53937/85 =|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/63 © \C70/rm/m/n/10.53937/78 ^^A \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/4f \ \C70/rm/m/n/10.53937/75 ( \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/5c O \C70/rm/m/n/10.53937/85 = \C70/rm/m/n/10.53937/4e ^^@ › \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/5b š \C70/rm/m/n/10.53937/4f M \C70/rm/m/n/10.53937/7f n \C70/rm/m/n/10.53937/76 „\T1/cmr/m/n/10.53937 token|\C70/rm/m/n/10.53937/ff ^^L|
+ []
 
-c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:213: Undefined control sequence.
+
+Overfull \hbox (10.14662pt too wide) in paragraph at lines 227--230
+\C70/rm/m/n/10.53937/7c { \C70/rm/m/n/10.53937/63 ¨|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/80 ^^L\T1/cmr/m/n/10.53937 Transformer\C70/rm/m/n/10.53937/6a ! \C70/rm/m/n/10.53937/57 ‹ \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/4f ^^X \C70/rm/m/n/10.53937/52 ¿ \C70/rm/m/n/10.53937/57 ( \C70/rm/m/n/10.53937/4e Ž \C70/rm/m/n/10.53937/51 v \C70/rm/m/n/10.53937/5e v \C70/rm/m/n/10.53937/88 L \C70/rm/m/n/10.53937/8b ¡ \C70/rm/m/n/10.53937/7b — \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/80 ý \C70/rm/m/n/10.53937/52 ›|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/4e _ \C70/rm/m/n/10.53937/5c 1 \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/53 ï \C70/rm/m/n/10.53937/4e å \C70/rm/m/n/10.53937/54 ^^L \C70/rm/m/n/10.53937/65 ö \C70/rm/m/n/10.53937/5b ù \C70/rm/m/n/10.53937/4e ^^@ * \C70/rm/m/n/10.53937/65 ‡ \C70/rm/m/n/10.53937/67 , \C70/rm/m/n/10.53937/5e  \C70/rm/m/n/10.53937/52 ^^W \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/62 @ \C70/rm/m/n/10.53937/67 	\T1/cmr/m/n/10.53937 token\C70/rm/m/n/10.53937/8f Û
+ []
+
+
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:235: Undefined control sequence.
 \f@nch@och ->\reportNumber 
                            \strut 
-l.213 \end{document}
+l.235     \item <
+                 BOS> I Like [MASK] [MASK]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5]
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:243: Undefined control sequence.
+\f@nch@och ->\reportNumber 
+                           \strut 
+l.243 \end{document}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1090,7 +1113,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[5] (LLMNote.aux)
+[6] (LLMNote.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1113,17 +1136,17 @@ Package rerunfilecheck Info: Checksums for `LLMNote.out':
 (rerunfilecheck)             After:  7774AB3FDAD19A10A5CC1B402AF8ACBB;600.
  ) 
 Here is how much of TeX's memory you used:
- 20994 strings out of 468133
- 362054 string characters out of 5430713
+ 21034 strings out of 468133
+ 362735 string characters out of 5430713
  800134 words of memory out of 5000000
- 49068 multiletter control sequences out of 15000+600000
- 672795 words of font info for 197 fonts, out of 8000000 for 9000
+ 49107 multiletter control sequences out of 15000+600000
+ 673065 words of font info for 198 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,12n,83p,1105b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\tcrm1000.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi753\ecbx1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi627\ecrm1728.pk><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on LLMNote.pdf (5 pages, 625456 bytes).
+<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\tcrm1000.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi753\ecbx1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi627\ecrm1728.pk><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on LLMNote.pdf (6 pages, 642855 bytes).
 PDF statistics:
- 642 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 297 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 655 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
+ 301 words of extra memory for PDF output out of 10000 (max. 10000000)
 

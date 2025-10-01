@@ -208,6 +208,36 @@ $attention(X,X,X)$
 
 
 \section{Mask Self-Attention 掩码自注意力机制}
+是指使用注意力掩码的自注意力机制。掩码是一种用于控制注意力分布的技术，通常用于处理序列数据中的某些特殊情况，如填充（padding）或未来信息的屏蔽。
+掩码的作用是屏蔽一些特定位置的token，模型在学习的过程中会忽略被屏蔽的token。
 
+使用注意力掩码的核心动机是让模型只能使用历史信息进行预测而不能看到未来的信息。
+使用注意力机制的Transformer模型也是通过类似于n-gram的语言模型任务来学习的，也就是对一个文本序列，不断根据之间的token来预测下一个token，直到将整个文本序列补全。
+
+eg： 待学习的文本序列是 [BOS] I Like you [EOS], 那么模型会按如下顺序进行预测和学习：
+\begin{itemize}
+    \item step 1: 输入【BOS】, 输出 I 
+    \item step 2: 输入【BOS, I】, 输出 Like
+    \item step 3: 输入【BOS, I, Like】, 输出 you
+    \item   step 4: 输入【BOS, I, Like, you】, 输出 [EOS]
+\end{itemize}
+
+理论上，只要学习的语料足够多，通过上述的过程，模型可以学会任意一种文本序列的建模方式，也就是可以对任意的文本进行补全。
+
+但是需要注意的是，上述的过程是一个串行的过程，也就是，需要先完成step1，才能进行step2, 以此类推。
+而Transformer模型的优势在于其并行计算的能力，也就是可以同时对一个文本序列的所有token进行计算，而不是像RNN那样一个个token顺序计算。
+因此，为了让Transformer模型既能并行计算，又能保证每个token只能看到历史信息，不能看到未来的信息，就需要使用掩码技术。
+
+例如我们待学习的文本仍旧是 [BOS] I Like you [EOS]，我们使用的注意力掩码是[MASK]，那么模型的输入为：
+\begin{itemize}
+    \item <BOS> [MASK] [MASK] [MASK] [MASK]
+    \item <BOS> I [MASK] [MASK] [MASK]
+    \item <BOS> I Like [MASK] [MASK]
+    \item <BOS> I Like you [MASK]
+    \item <BOS> I Like you [/EOS]
+\end{itemize}
+
+在每一行输入中，模型仍然只能看到前面的token，预测下一个token。但是上述输入不再是串行的过程，而是可以并行计算的过程。
+模型只需要每一个样本根据未被遮蔽的token来预测下一个token即可。
 % \bibliography{reference}
 \end{document}
