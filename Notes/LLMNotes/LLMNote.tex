@@ -176,5 +176,38 @@
 
 \end{itemize}
 
+
+
+\section{Attention Mechanism 注意力机制}
+
+注意力机制三个核心变量: Query(查询值), Key（键值）, Value（真值）
+\begin{equation}
+    attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V
+    \label{eq:attention}
+\end{equation}
+
+Q is the Query matrix, K is the Key matrix, V is the Value matrix, and $d_k$ is the dimension of the key vectors.
+Usually Q and K are of the same dimension $d_k$
+
+注意力机制的本质是对两段序列的元素依次进行相似度的计算，寻找出一个序列的每个元素对另一个序列的每个元素的相关度，然后基于相关度进行加权，即分配注意力。
+而这两段序列即是我们计算过程中QKV的来源。
+
+但是在实际应用中，我们往往只需要计算Query和Key之间的注意力结果，很少存在额外的真值Value。
+在经典注意力机制中，Q往往来自于一个序列，K与V来自另一个序列，都通过参数矩阵计算得到，从而可以你和这两个序列之间的关系。
+例如在Transformer的Decoder结构中，Q来自于Decoder的输入，K与V来自于Encoder的输出，从而拟合了编码信息与历史信息之间的关系，
+实现了Decoder对Encoder输出的关注。
+
+但在Transformer的Encoder结构中，使用的是自注意力机制（self-attention)。
+计算本身序列中的每个元素对其他元素的注意力分布，即在计算过程中，QKV都由同一个输入通过不同的参数矩阵计算得到。
+在Encoder中QKV分别是输入对参数矩阵$W_q$, $W_k$, $W_v$ 做积得到，从而拟合输入语句中每一个token对其他的所有token的关系。
+
+通过自注意力机制，我们可以找到一段文本中每一个token与其他所有token的相关关系大小，从而建模文本之间的依赖关系。
+在代码中的实现，self-attention是通过QKV的输入传入同一个参数实现:
+
+$attention(X,X,X)$
+
+
+\section{Mask Self-Attention 掩码自注意力机制}
+
 % \bibliography{reference}
 \end{document}
