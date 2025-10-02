@@ -192,6 +192,20 @@ Usually Q and K are of the same dimension $d_k$
 注意力机制的本质是对两段序列的元素依次进行相似度的计算，寻找出一个序列的每个元素对另一个序列的每个元素的相关度，然后基于相关度进行加权，即分配注意力。
 而这两段序列即是我们计算过程中QKV的来源。
 
+利用pytorch来实现attention机制的代码如下：
+
+\begin{verbatim}
+    def attention(query, key, value, drouput=None):
+        d_k = query.size(-1)
+        scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(d_k)
+
+        p_attn = scores.softmax(dim=-1)
+        if dropout is not None:
+            p_attn = dropout(p_attn)
+        return torch.matmul(p_attn, value), p_attn
+
+\end{verbatim}
+
 但是在实际应用中，我们往往只需要计算Query和Key之间的注意力结果，很少存在额外的真值Value。
 在经典注意力机制中，Q往往来自于一个序列，K与V来自另一个序列，都通过参数矩阵计算得到，从而可以你和这两个序列之间的关系。
 例如在Transformer的Decoder结构中，Q来自于Decoder的输入，K与V来自于Encoder的输出，从而拟合了编码信息与历史信息之间的关系，
@@ -239,5 +253,77 @@ eg： 待学习的文本序列是 [BOS] I Like you [EOS], 那么模型会按如�
 
 在每一行输入中，模型仍然只能看到前面的token，预测下一个token。但是上述输入不再是串行的过程，而是可以并行计算的过程。
 模型只需要每一个样本根据未被遮蔽的token来预测下一个token即可。
+
+观察上述的掩码，它可以看作是一个与文本序列等长的上三角矩阵。我们可以通过创建一个和输入等长的上三角矩阵来实现掩码的功能。
+也就是说，当输入维度为 $(batch\_size, seq\_len, d\_model)$时，我们创建的掩码矩阵维度为 $(1, seq\_len, seq\_len)$，上三角矩阵中的1表示该位置的token可以被看到，0表示该位置的token被遮蔽。
+
+在具体实现中，通过以下代码生成MASk矩阵：
+\begin{verbatim}
+    # create a 1*seq_len*seq_len matrix use full function
+    mask = torch.full((1, args.max_seq_len, args.max_seq_len), float('-inf'))
+    # use triu function to make it upper triangular matrix
+    mask = torch.triu(mask, diagonal=1)
+\end{verbatim}
+
+生成的MASK是一个上三角矩阵,上半部分值为-inf，下半部分值为0.0。
+在注意力计算时，将计算得到的注意力分数和这个掩码做和，再进行softmax计算。
+\begin{verbatim}
+    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(d_k)
+    scores = scores + mask[:, :seq_len, :seq_len]  # mask的维度是1*seq_len*seq_len
+    scores = F.softmax(scores.float(), dim=-1).type_as(xq)  # (batch_size, seq_len, seq_len)
+    if mask is not None:
+        scores = scores + mask
+    attn = F.softmax(scores, dim=-1)
+    output = torch.matmul(attn, V)
+\end{verbatim}
+
+求和之后上三角区域（被遮蔽的token对应位置）注意力分数结果都是-inf，下三角区保持不变。
+经过softmax处理后， -inf会变成0，从而忽略了上三角区域计算的注意力分数，从而实现注意力遮蔽。
+
+
+\section{多头注意力:Multi-Head Attention, MHA}
+注意力机制可以实现并行化与长期依赖关系拟合，但一次注意力计算只能拟合一种相关关系。
+单一的注意力机制很难全面拟合语句序列里相关关系，因此使用了多头注意力机制(Multi-Head Attention, MHA)。
+
+MHA,即同时对一个语料进行多次注意力计算，每次注意力计算都能拟合不同的关系，将最后多次的结果拼接起来作为最后的输出，即可更全面深入地拟合语言信息。
+
+用公式可以表示为：
+
+\begin{equation}
+    MultiHead(Q,K,V) = Concat(head_1, head_2, ..., head_h)W^O
+    \label{eq:mha}
+\end{equation}
+ 
+where $head_i = attention(QW_i^Q, KW_i^K, VW_i^V)$.
+
+代码实现不复杂，即n个头就有n组QKV参数矩阵，分别计算n次注意力，然后拼接起来。
+\begin{verbatim}
+    import torch.nn as nn
+    import torch
+
+    class MultiHeadAttention(nn.Module):
+        def __init__(self, args: ModelArgs, is_causal=False):
+            super().__init__()
+            # 隐藏层的维度必须是头数的整数倍，因为后面会将输入拆成头数个的矩阵
+            assert args.dim % args.n_heads == 0
+            # 每个头的维度等于模型维度除以头的总数
+            self.head_dim = args.dim // args.n_heads
+            self.n_heads = args.n_heads
+
+            # Wq, Wk, Wv 参数矩阵， n_embd*dim
+            selq.wq = nn.linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
+            self.wk = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
+            self.wv = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
+            # 输出权重矩阵 维度 dim * dim (head_dim = dim / n_heads)
+            self.wo = nn.Linear(self.n_heads * self.head_dim, args.n_embd, bias=False)
+            # self-attention dropout
+            self.att_dropout = nn.Dropout(args.dropout)
+            # residual dropout
+            self.resid_dropout = nn.Dropout(args.dropout)
+            self.is_causal = is_causal
+
+            
+
+\end{verbatim}
 % \bibliography{reference}
 \end{document}

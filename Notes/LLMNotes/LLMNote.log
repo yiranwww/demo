@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  2 OCT 2025 02:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  3 OCT 2025 01:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,7 +760,8 @@ Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
 File: UTF8.enc 2021/10/16 4.8.5
 ) (C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
 File: UTF8.chr 2021/10/16 4.8.5
-) (LLMNote.aux)
+)
+No file LLMNote.aux.
 \openout1 = `LLMNote.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
@@ -845,7 +846,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1055,57 +1055,11 @@ Overfull \hbox (14.50699pt too wide) in paragraph at lines 173--174
  []
 
 
-Overfull \hbox (5.53845pt too wide) in paragraph at lines 195--199
-\T1/cmr/m/n/10.53937 K\C70/rm/m/n/10.53937/4e ^^N\T1/cmr/m/n/10.53937 V\C70/rm/m/n/10.53937/67 e \C70/rm/m/n/10.53937/81 ê \C70/rm/m/n/10.53937/4e Ž\T1/cmr/m/n/10.53937 Encoder\C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/8f “ \C70/rm/m/n/10.53937/51 ú|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/4e Î \C70/rm/m/n/10.53937/80 ^^L \C70/rm/m/n/10.53937/62 ß \C70/rm/m/n/10.53937/54 ^^H \C70/rm/m/n/10.53937/4e † \C70/rm/m/n/10.53937/7f ^^V \C70/rm/m/n/10.53937/78 ^^A \C70/rm/m/n/10.53937/4f á \C70/rm/m/n/10.53937/60 o \C70/rm/m/n/10.53937/4e ^^N \C70/rm/m/n/10.53937/53 † ò \C70/rm/m/n/10.53937/4f á \C70/rm/m/n/10.53937/60 o \C70/rm/m/n/10.53937/4e K \C70/rm/m/n/10.53937/95 ô \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/51 s \C70/rm/m/n/10.53937/7c û|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/5b ž \C70/rm/m/n/10.53937/73 ° \C70/rm/m/n/10.53937/4e †\T1/cmr/m/n/10.53937 Decoder\C70/rm/m/n/10.53937/5b ù\T1/cmr/m/n/10.53937 Encoder\C70/rm/m/n/10.53937/8f “
- []
 
-
-
-c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:200: Undefined control sequence.
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:207: Undefined control sequence.
 \f@nch@och ->\reportNumber 
                            \strut 
-l.200 ä½†
-         åœ¨Transformerçš„Encoderç»“æž„ä¸­ï¼Œä½¿ç”¨çš„æ˜¯è‡ªæ³¨æ„åŠ›æœºåˆ¶ï...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[4]
-Overfull \hbox (10.08932pt too wide) in paragraph at lines 200--203
-\C70/rm/m/n/10.53937/52 0|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/57 (\T1/cmr/m/n/10.53937 Encoder\C70/rm/m/n/10.53937/4e -\T1/cmr/m/n/10.53937 QKV\C70/rm/m/n/10.53937/52 ^^F + \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/8f “ \C70/rm/m/n/10.53937/51 e \C70/rm/m/n/10.53937/5b ù \C70/rm/m/n/10.53937/53 Â \C70/rm/m/n/10.53937/65 p \C70/rm/m/n/10.53937/77 é \C70/rm/m/n/10.53937/96 5$\OML/cmm/m/it/10.53937 W[]$\T1/cmr/m/n/10.53937 , $\OML/cmm/m/it/10.53937 W[]$\T1/cmr/m/n/10.53937 , $\OML/cmm/m/it/10.53937 W[]$ \C70/rm/m/n/10.53937/50 Z \C70/rm/m/n/10.53937/79 ï \C70/rm/m/n/10.53937/5f — \C70/rm/m/n/10.53937/52 0|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/4e Î \C70/rm/m/n/10.53937/80 ^^L \C70/rm/m/n/10.53937/62 ß \C70/rm/m/n/10.53937/54 ^^H \C70/rm/m/n/10.53937/8f “ \C70/rm/m/n/10.53937/51 e \C70/rm/m/n/10.53937/8b í \C70/rm/m/n/10.53937/53 å \C70/rm/m/n/10.53937/4e - \C70/rm/m/n/10.53937/6b Ï \C70/rm/m/n/10.53937/4e ^^@ *\T1/cmr/m/n/10.53937 token\C70/rm/m/n/10.53937/5b ù
- []
-
-
-Overfull \hbox (3.75156pt too wide) in paragraph at lines 211--213
-\C70/rm/m/n/10.53937/63 n \C70/rm/m/n/10.53937/4e - \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/67 Ð \C70/rm/m/n/10.53937/4e › \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/6b Š \C70/rm/m/n/10.53937/60 Å \C70/rm/m/n/10.53937/51 µ|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/59 ‚ \C70/rm/m/n/10.53937/58 k \C70/rm/m/n/10.53937/51 E |\C70/rm/m/n/10.53937/ff ^^H|\T1/cmr/m/n/10.53937 padding|\C70/rm/m/n/10.53937/ff 	| \C70/rm/m/n/10.53937/62 ^^V \C70/rm/m/n/10.53937/67 * e \C70/rm/m/n/10.53937/4f á \C70/rm/m/n/10.53937/60 o \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/5c O \C70/rm/m/n/10.53937/85 =|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/63 © \C70/rm/m/n/10.53937/78 ^^A \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/4f \ \C70/rm/m/n/10.53937/75 ( \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/5c O \C70/rm/m/n/10.53937/85 = \C70/rm/m/n/10.53937/4e ^^@ › \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/5b š \C70/rm/m/n/10.53937/4f M \C70/rm/m/n/10.53937/7f n \C70/rm/m/n/10.53937/76 „\T1/cmr/m/n/10.53937 token|\C70/rm/m/n/10.53937/ff ^^L|
- []
-
-
-Overfull \hbox (10.14662pt too wide) in paragraph at lines 227--230
-\C70/rm/m/n/10.53937/7c { \C70/rm/m/n/10.53937/63 ¨|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/80 ^^L\T1/cmr/m/n/10.53937 Transformer\C70/rm/m/n/10.53937/6a ! \C70/rm/m/n/10.53937/57 ‹ \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/4f ^^X \C70/rm/m/n/10.53937/52 ¿ \C70/rm/m/n/10.53937/57 ( \C70/rm/m/n/10.53937/4e Ž \C70/rm/m/n/10.53937/51 v \C70/rm/m/n/10.53937/5e v \C70/rm/m/n/10.53937/88 L \C70/rm/m/n/10.53937/8b ¡ \C70/rm/m/n/10.53937/7b — \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/80 ý \C70/rm/m/n/10.53937/52 ›|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/4e _ \C70/rm/m/n/10.53937/5c 1 \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/53 ï \C70/rm/m/n/10.53937/4e å \C70/rm/m/n/10.53937/54 ^^L \C70/rm/m/n/10.53937/65 ö \C70/rm/m/n/10.53937/5b ù \C70/rm/m/n/10.53937/4e ^^@ * \C70/rm/m/n/10.53937/65 ‡ \C70/rm/m/n/10.53937/67 , \C70/rm/m/n/10.53937/5e  \C70/rm/m/n/10.53937/52 ^^W \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/62 @ \C70/rm/m/n/10.53937/67 	\T1/cmr/m/n/10.53937 token\C70/rm/m/n/10.53937/8f Û
- []
-
-
-
-c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:235: Undefined control sequence.
-\f@nch@och ->\reportNumber 
-                           \strut 
-l.235     \item <
-                 BOS> I Like [MASK] [MASK]
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[5]
-
-c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:243: Undefined control sequence.
-\f@nch@och ->\reportNumber 
-                           \strut 
-l.243 \end{document}
+l.207 \end{verbatim}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1113,7 +1067,109 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[6] (LLMNote.aux)
+[4]
+Overfull \hbox (5.53845pt too wide) in paragraph at lines 209--213
+\T1/cmr/m/n/10.53937 K\C70/rm/m/n/10.53937/4e ^^N\T1/cmr/m/n/10.53937 V\C70/rm/m/n/10.53937/67 e \C70/rm/m/n/10.53937/81 ê \C70/rm/m/n/10.53937/4e Ž\T1/cmr/m/n/10.53937 Encoder\C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/8f “ \C70/rm/m/n/10.53937/51 ú|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/4e Î \C70/rm/m/n/10.53937/80 ^^L \C70/rm/m/n/10.53937/62 ß \C70/rm/m/n/10.53937/54 ^^H \C70/rm/m/n/10.53937/4e † \C70/rm/m/n/10.53937/7f ^^V \C70/rm/m/n/10.53937/78 ^^A \C70/rm/m/n/10.53937/4f á \C70/rm/m/n/10.53937/60 o \C70/rm/m/n/10.53937/4e ^^N \C70/rm/m/n/10.53937/53 † ò \C70/rm/m/n/10.53937/4f á \C70/rm/m/n/10.53937/60 o \C70/rm/m/n/10.53937/4e K \C70/rm/m/n/10.53937/95 ô \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/51 s \C70/rm/m/n/10.53937/7c û|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/5b ž \C70/rm/m/n/10.53937/73 ° \C70/rm/m/n/10.53937/4e †\T1/cmr/m/n/10.53937 Decoder\C70/rm/m/n/10.53937/5b ù\T1/cmr/m/n/10.53937 Encoder\C70/rm/m/n/10.53937/8f “
+ []
+
+
+Overfull \hbox (10.08932pt too wide) in paragraph at lines 214--217
+\C70/rm/m/n/10.53937/52 0|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/57 (\T1/cmr/m/n/10.53937 Encoder\C70/rm/m/n/10.53937/4e -\T1/cmr/m/n/10.53937 QKV\C70/rm/m/n/10.53937/52 ^^F + \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/8f “ \C70/rm/m/n/10.53937/51 e \C70/rm/m/n/10.53937/5b ù \C70/rm/m/n/10.53937/53 Â \C70/rm/m/n/10.53937/65 p \C70/rm/m/n/10.53937/77 é \C70/rm/m/n/10.53937/96 5$\OML/cmm/m/it/10.53937 W[]$\T1/cmr/m/n/10.53937 , $\OML/cmm/m/it/10.53937 W[]$\T1/cmr/m/n/10.53937 , $\OML/cmm/m/it/10.53937 W[]$ \C70/rm/m/n/10.53937/50 Z \C70/rm/m/n/10.53937/79 ï \C70/rm/m/n/10.53937/5f — \C70/rm/m/n/10.53937/52 0|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/4e Î \C70/rm/m/n/10.53937/80 ^^L \C70/rm/m/n/10.53937/62 ß \C70/rm/m/n/10.53937/54 ^^H \C70/rm/m/n/10.53937/8f “ \C70/rm/m/n/10.53937/51 e \C70/rm/m/n/10.53937/8b í \C70/rm/m/n/10.53937/53 å \C70/rm/m/n/10.53937/4e - \C70/rm/m/n/10.53937/6b Ï \C70/rm/m/n/10.53937/4e ^^@ *\T1/cmr/m/n/10.53937 token\C70/rm/m/n/10.53937/5b ù
+ []
+
+
+Overfull \hbox (3.75156pt too wide) in paragraph at lines 225--227
+\C70/rm/m/n/10.53937/63 n \C70/rm/m/n/10.53937/4e - \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/67 Ð \C70/rm/m/n/10.53937/4e › \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/6b Š \C70/rm/m/n/10.53937/60 Å \C70/rm/m/n/10.53937/51 µ|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/59 ‚ \C70/rm/m/n/10.53937/58 k \C70/rm/m/n/10.53937/51 E |\C70/rm/m/n/10.53937/ff ^^H|\T1/cmr/m/n/10.53937 padding|\C70/rm/m/n/10.53937/ff 	| \C70/rm/m/n/10.53937/62 ^^V \C70/rm/m/n/10.53937/67 * e \C70/rm/m/n/10.53937/4f á \C70/rm/m/n/10.53937/60 o \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/5c O \C70/rm/m/n/10.53937/85 =|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/63 © \C70/rm/m/n/10.53937/78 ^^A \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/4f \ \C70/rm/m/n/10.53937/75 ( \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/5c O \C70/rm/m/n/10.53937/85 = \C70/rm/m/n/10.53937/4e ^^@ › \C70/rm/m/n/10.53937/72 y \C70/rm/m/n/10.53937/5b š \C70/rm/m/n/10.53937/4f M \C70/rm/m/n/10.53937/7f n \C70/rm/m/n/10.53937/76 „\T1/cmr/m/n/10.53937 token|\C70/rm/m/n/10.53937/ff ^^L|
+ []
+
+
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:240: Undefined control sequence.
+\f@nch@och ->\reportNumber 
+                           \strut 
+l.240 
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5]
+Overfull \hbox (10.14662pt too wide) in paragraph at lines 241--244
+\C70/rm/m/n/10.53937/7c { \C70/rm/m/n/10.53937/63 ¨|\C70/rm/m/n/10.53937/30 ^^B| \C70/rm/m/n/10.53937/80 ^^L\T1/cmr/m/n/10.53937 Transformer\C70/rm/m/n/10.53937/6a ! \C70/rm/m/n/10.53937/57 ‹ \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/4f ^^X \C70/rm/m/n/10.53937/52 ¿ \C70/rm/m/n/10.53937/57 ( \C70/rm/m/n/10.53937/4e Ž \C70/rm/m/n/10.53937/51 v \C70/rm/m/n/10.53937/5e v \C70/rm/m/n/10.53937/88 L \C70/rm/m/n/10.53937/8b ¡ \C70/rm/m/n/10.53937/7b — \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/80 ý \C70/rm/m/n/10.53937/52 ›|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/4e _ \C70/rm/m/n/10.53937/5c 1 \C70/rm/m/n/10.53937/66 / \C70/rm/m/n/10.53937/53 ï \C70/rm/m/n/10.53937/4e å \C70/rm/m/n/10.53937/54 ^^L \C70/rm/m/n/10.53937/65 ö \C70/rm/m/n/10.53937/5b ù \C70/rm/m/n/10.53937/4e ^^@ * \C70/rm/m/n/10.53937/65 ‡ \C70/rm/m/n/10.53937/67 , \C70/rm/m/n/10.53937/5e  \C70/rm/m/n/10.53937/52 ^^W \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/62 @ \C70/rm/m/n/10.53937/67 	\T1/cmr/m/n/10.53937 token\C70/rm/m/n/10.53937/8f Û
+ []
+
+LaTeX Font Info:    Trying to load font information for C70+zhfs on input line 278.
+(C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex/latex/zhmetrics\c70zhfs.fd
+File: c70zhfs.fd 2009/09/23 4.8.2
+)
+Overfull \hbox (39.17192pt too wide) in paragraph at lines 278--278
+[]    \T1/cmtt/m/n/10.53937 scores = F.softmax(scores.float(), dim=-1).type_as(xq)  # (batch_size, seq_len, seq_len)[] 
+ []
+
+
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:282: Undefined control sequence.
+\f@nch@och ->\reportNumber 
+                           \strut 
+l.282 
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[6]
+Package CJKpunct Info: use punctuation spaces for family 'zhfs' with punctstyle (quanjiao) on input line 327.
+
+Overfull \hbox (5.98103pt too wide) in paragraph at lines 327--327
+[]            \T1/cmtt/m/n/10.53937 selq.wq = nn.linear(args.n_embd, self.n_heads * self.head_dim, bias=False)[] 
+ []
+
+
+Overfull \hbox (5.98103pt too wide) in paragraph at lines 327--327
+[]            \T1/cmtt/m/n/10.53937 self.wk = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)[] 
+ []
+
+
+Overfull \hbox (5.98103pt too wide) in paragraph at lines 327--327
+[]            \T1/cmtt/m/n/10.53937 self.wv = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)[] 
+ []
+
+
+Overfull \hbox (5.98103pt too wide) in paragraph at lines 327--327
+[]            \T1/cmtt/m/n/10.53937 self.wo = nn.Linear(self.n_heads * self.head_dim, args.n_embd, bias=False)[] 
+ []
+
+
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:327: Undefined control sequence.
+\f@nch@och ->\reportNumber 
+                           \strut 
+l.327 \end{verbatim}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[7]
+
+c:/YR_Python_Code/yr_demo/demo/Notes/LLMNotes/LLMNote.tex:329: Undefined control sequence.
+\f@nch@och ->\reportNumber 
+                           \strut 
+l.329 \end{document}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[8] (LLMNote.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1133,20 +1189,20 @@ Package rerunfilecheck Warning: File `LLMNote.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `LLMNote.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  7774AB3FDAD19A10A5CC1B402AF8ACBB;600.
+(rerunfilecheck)             After:  2C49C2DB13073D6E3DC44E3FC1BCA333;819.
  ) 
 Here is how much of TeX's memory you used:
- 21037 strings out of 468133
- 362827 string characters out of 5430713
+ 21371 strings out of 468133
+ 370466 string characters out of 5430713
  800134 words of memory out of 5000000
- 49108 multiletter control sequences out of 15000+600000
- 673065 words of font info for 198 fonts, out of 8000000 for 9000
+ 49371 multiletter control sequences out of 15000+600000
+ 683282 words of font info for 232 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,12n,83p,1105b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\tcrm1000.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi753\ecbx1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi627\ecrm1728.pk><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on LLMNote.pdf (6 pages, 642855 bytes).
+ 80i,12n,83p,1105b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ectt1000.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\tcrm1000.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi753\ecbx1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\wyr95\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi627\ecrm1728.pk><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/wyr95/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on LLMNote.pdf (8 pages, 773745 bytes).
 PDF statistics:
- 655 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
+ 865 PDF objects out of 1000 (max. 8388607)
+ 17 named destinations out of 1000 (max. 500000)
  301 words of extra memory for PDF output out of 10000 (max. 10000000)
 
