@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  3 OCT 2025 01:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.5)  3 OCT 2025 02:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,8 +760,7 @@ Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
 File: UTF8.enc 2021/10/16 4.8.5
 ) (C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
 File: UTF8.chr 2021/10/16 4.8.5
-)
-No file LLMNote.aux.
+) (LLMNote.aux)
 \openout1 = `LLMNote.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
@@ -846,6 +845,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1192,10 +1192,10 @@ Package rerunfilecheck Info: Checksums for `LLMNote.out':
 (rerunfilecheck)             After:  2C49C2DB13073D6E3DC44E3FC1BCA333;819.
  ) 
 Here is how much of TeX's memory you used:
- 21371 strings out of 468133
- 370466 string characters out of 5430713
+ 21374 strings out of 468133
+ 370558 string characters out of 5430713
  800134 words of memory out of 5000000
- 49371 multiletter control sequences out of 15000+600000
+ 49372 multiletter control sequences out of 15000+600000
  683282 words of font info for 232 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,12n,83p,1105b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
