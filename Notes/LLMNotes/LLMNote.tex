@@ -298,32 +298,199 @@ where $head_i = attention(QW_i^Q, KW_i^K, VW_i^V)$.
 
 代码实现不复杂，即n个头就有n组QKV参数矩阵，分别计算n次注意力，然后拼接起来。
 \begin{verbatim}
-    import torch.nn as nn
-    import torch
+import torch.nn as nn
+import torch
 
-    class MultiHeadAttention(nn.Module):
-        def __init__(self, args: ModelArgs, is_causal=False):
-            super().__init__()
-            # 隐藏层的维度必须是头数的整数倍，因为后面会将输入拆成头数个的矩阵
-            assert args.dim % args.n_heads == 0
-            # 每个头的维度等于模型维度除以头的总数
-            self.head_dim = args.dim // args.n_heads
-            self.n_heads = args.n_heads
+'''多头自注意力计算模块'''
+class MultiHeadAttention(nn.Module):
 
-            # Wq, Wk, Wv 参数矩阵， n_embd*dim
-            selq.wq = nn.linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
-            self.wk = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
-            self.wv = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
-            # 输出权重矩阵 维度 dim * dim (head_dim = dim / n_heads)
-            self.wo = nn.Linear(self.n_heads * self.head_dim, args.n_embd, bias=False)
-            # self-attention dropout
-            self.att_dropout = nn.Dropout(args.dropout)
-            # residual dropout
-            self.resid_dropout = nn.Dropout(args.dropout)
-            self.is_causal = is_causal
+    def __init__(self, args: ModelArgs, is_causal=False):
+        # 构造函数
+        # args: 配置对象
+        super().__init__()
+        # 隐藏层维度必须是头数的整数倍，因为后面我们会将输入拆成头数个矩阵
+        assert args.dim % args.n_heads == 0
+        # 每个头的维度，等于模型维度除以头的总数。
+        self.head_dim = args.dim // args.n_heads
+        self.n_heads = args.n_heads
 
+        # Wq, Wk, Wv 参数矩阵，每个参数矩阵为 n_embd x dim
+        # 这里通过三个组合矩阵来代替了n个参数矩阵的组合，其逻辑在于矩阵内积再拼接其实等同于拼接矩阵再内积，
+        # 不理解的读者可以自行模拟一下，每一个线性层其实相当于n个参数矩阵的拼接
+        self.wq = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
+        self.wk = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
+        self.wv = nn.Linear(args.n_embd, self.n_heads * self.head_dim, bias=False)
+        # 输出权重矩阵，维度为 dim x dim（head_dim = dim / n_heads）
+        self.wo = nn.Linear(self.n_heads * self.head_dim, args.dim, bias=False)
+        # 注意力的 dropout
+        self.attn_dropout = nn.Dropout(args.dropout)
+        # 残差连接的 dropout
+        self.resid_dropout = nn.Dropout(args.dropout)
+        self.is_causal = is_causal
+
+        # 创建一个上三角矩阵，用于遮蔽未来信息
+        # 注意，因为是多头注意力，Mask 矩阵比之前我们定义的多一个维度
+        if is_causal:
+            mask = torch.full((1, 1, args.max_seq_len, args.max_seq_len), float("-inf"))
+            mask = torch.triu(mask, diagonal=1)
+            # 注册为模型的缓冲区
+            self.register_buffer("mask", mask)
+
+    def forward(self, q: torch.Tensor, k: torch.Tensor, v: torch.Tensor):
+
+        # 获取批次大小和序列长度，[batch_size, seq_len, dim]
+        bsz, seqlen, _ = q.shape
+
+        # 计算查询（Q）、键（K）、值（V）,输入通过参数矩阵层，维度为 (B, T, n_embed) x (n_embed, dim) -> (B, T, dim)
+        xq, xk, xv = self.wq(q), self.wk(k), self.wv(v)
+
+        # 将 Q、K、V 拆分成多头，维度为 (B, T, n_head, dim // n_head)，然后交换维度，变成 (B, n_head, T, dim // n_head)
+        # 因为在注意力计算中我们是取了后两个维度参与计算
+        # 为什么要先按B*T*n_head*C//n_head展开再互换1、2维度而不是直接按注意力输入展开，是因为view的展开方式是直接把输入全部排开，
+        # 然后按要求构造，可以发现只有上述操作能够实现我们将每个头对应部分取出来的目标
+        xq = xq.view(bsz, seqlen, self.n_heads, self.head_dim)
+        xk = xk.view(bsz, seqlen, self.n_heads, self.head_dim)
+        xv = xv.view(bsz, seqlen, self.n_heads, self.head_dim)
+        xq = xq.transpose(1, 2)
+        xk = xk.transpose(1, 2)
+        xv = xv.transpose(1, 2)
+
+        # 注意力计算
+        # 计算 QK^T / sqrt(d_k)，维度为 (B, nh, T, hs) x (B, nh, hs, T) -> (B, nh, T, T)
+        scores = torch.matmul(xq, xk.transpose(2, 3)) / math.sqrt(self.head_dim)
+        # 掩码自注意力必须有注意力掩码
+        if self.is_causal:
+            assert hasattr(self, 'mask')
+            # 这里截取到序列长度，因为有些序列可能比 max_seq_len 短
+            scores = scores + self.mask[:, :, :seqlen, :seqlen]
+        # 计算 softmax，维度为 (B, nh, T, T)
+        scores = F.softmax(scores.float(), dim=-1).type_as(xq)
+        # 做 Dropout
+        scores = self.attn_dropout(scores)
+        # V * Score，维度为(B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
+        output = torch.matmul(scores, xv)
+
+        # 恢复时间维度并合并头。
+        # 将多头的结果拼接起来, 先交换维度为 (B, T, n_head, dim // n_head)，再拼接成 (B, T, n_head * dim // n_head)
+        # contiguous 函数用于重新开辟一块新内存存储，因为Pytorch设置先transpose再view会报错，
+        # 因为view直接基于底层存储得到，然而transpose并不会改变底层存储，因此需要额外存储
+        output = output.transpose(1, 2).contiguous().view(bsz, seqlen, -1)
+
+        # 最终投影回残差流。
+        output = self.wo(output)
+        output = self.resid_dropout(output)
+        return output
             
 
 \end{verbatim}
+
+
+
+\section{Encoder-Decoder}
+Encoder -Decoder是注意力机制的两个核心组件。
+BERT只使用Encoder,GPT只使用Decoder。
+
+\subsection{Seq2Seq}
+Seq2Seq是只模型输入的是一个自然语言序列 $input = (x_1,x_2,x_3,...x_n)$,
+输出是一个可能不等长的自然语言序列$output = (y_1, y_2, y_3, ...y_n)$.
+
+几乎所有的NLP任务都可以转化为Seq2Seq任务，例如机器翻译，文本摘要，文本生成，问答系统等。
+
+对于Seq2Seq的任务，一般的思路是对自然语言序列进行编码再解码。
+
+编码：将输入的自然语言序列通过隐藏层编码成能够表征语义的向量或矩阵，可以简单理解为更复杂的词向量表示。
+解码：对输入的自然语言序列编码得到的向量或矩阵通过隐藏层输出，再解码成对应的自然语言目标序列。
+
+Transformer由Encoder和Decoder组成。
+每一个Encoder/Decoder又由6个Decoder/Encoder Layer 组成。
+输入的源序列会进入Encoder进行编码，到Encoder Layer的最顶层再将编码结果输出给Decoder Layer的每一层，
+通过Decoder进行解码后得到输出目标序列。
+
+\subsubsection{Feed Forward Neural Network, FNN}
+每一层的神经元都和上下两层的每一个神经元完全链接的网络结构。
+每一个Encoder Layer都包含一个注意力机制和一个前馈神经网络。
+代码实现可参考如下：
+
+\begin{verbatim}
+    class MLP(nn.Module):
+    '''前馈神经网络'''
+    def __init__(self, dim: int, hidden_dim: int, dropout: float):
+        super().__init__()
+        # 定义第一层线性变换，从输入维度到隐藏维度
+        self.w1 = nn.Linear(dim, hidden_dim, bias=False)
+        # 定义第二层线性变换，从隐藏维度到输入维度
+        self.w2 = nn.Linear(hidden_dim, dim, bias=False)
+        # 定义dropout层，用于防止过拟合
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, x):
+        # 前向传播函数
+        # 首先，输入x通过第一层线性变换和RELU激活函数
+        # 最后，通过第二层线性变换和dropout层
+        return self.dropout(self.w2(F.relu(self.w1(x))))
+\end{verbatim}
+
+Transformer的前馈神经网络是由两个线性层中间加一个RELU组成，以及FNN还加入了一个droupout防止过拟合。
+
+\subsubsection{Layer Normalization, LN. 层归一化}
+
+归一化的核心，是为了让不同层的输入的取值范围或分布能够比较一致。
+由于DNN每一层的输入都是上一层的输出，因此多层传递下，对于网络中较高的层，之前的所有神经层的参数变化会导致其输入的分布发生较大改变。
+即，随着神经网络参数的更新，各层的输出分布是不同的，且差异会随着网络深度的增大而增大。
+但是需要预测的条件分布始终是相同的，从而造成了预测的误差。
+
+批归一化（Batch Norm）是指在一个mini-batch上进行归一化，相当于对一个Batch样本拆分出来一部分，首先计算样本的均值：
+\begin{equation}
+    \mu_j = \frac{1}{m} \sum_{i=1}^{m} x^{i}_{j}
+    \label{eq:batchnorm1}
+\end{equation}
+
+$x^{i}_{j}$ 表示样本i在第j个维度上的值，m表示一个Batch的样本数量。
+
+再计算样本的方差：
+\begin{equation}
+    \sigma^2 = \frac{1}{m} \sum_{i=1}^{m} (x^{i}_{j} - \mu_j)^2 
+    \label{eq:batchnorm2}
+\end{equation}
+
+最后对每个样本的值减去均值在除以标准差来将这个mini-batch的样本分布转化成正态分布：
+
+\begin{equation}
+    \hat{x}^{i}_{j} = \frac{x^{i}_{j} - \mu_j}{\sqrt{\sigma^2 + \epsilon}}
+    \label{eq:batchnorm3}
+\end{equation}
+此处加上一个很小的数$\epsilon$是为了防止分母为0.
+
+但是Batch norm有一些缺陷：
+\begin{itemize}
+    \item 当显存有限，mini-batch较小时，BatchNorm取得样本均值和方差不能反映全局的统计分布信息，从而导致结果变差。
+    \item 对于在时间维度展开的RNN，不同的句子的同一分布大概率不同，所以BatchNorm的归一化用处不大。
+    \item 在训练时，BatchNorm需要保存每个step的统计信息（均值和方差）。在测试时由于变长句子的特性，测试机可能出现比训练集更长的句子。
+          所以对于后面位置的step，没有训练的统计特征使用。
+    \item 应用BatchNorm每个step都需要保存和计算batch统计量增加了计算和内存开销。
+\end{itemize}
+
+因此层归一化（Layer Norm）被提出。
+
+相比较BatchNorm在每一层统计所有样本的均值和方差，LayerNorm在每个样本上计算其所有层的均值和方差，
+从而使每个样本的分布达到稳定。其方式是一样的，只是统计的维度不同。
+\begin{verbatim}
+class LayerNorm(nn.Module):
+    ''' Layer Norm 层'''
+    def __init__(self, features, eps=1e-6):
+	super().__init__()
+    # 线性矩阵做映射
+	self.a_2 = nn.Parameter(torch.ones(features))
+	self.b_2 = nn.Parameter(torch.zeros(features))
+	self.eps = eps
+	
+    def forward(self, x):
+	# 在统计每个样本所有维度的值，求均值和方差
+	mean = x.mean(-1, keepdim=True) # mean: [bsz, max_len, 1]
+	std = x.std(-1, keepdim=True) # std: [bsz, max_len, 1]
+    # 注意这里也在最后一个维度发生了广播
+	return self.a_2 * (x - mean) / (std + self.eps) + self.b_2
+\end{verbatim}
+
 % \bibliography{reference}
 \end{document}
