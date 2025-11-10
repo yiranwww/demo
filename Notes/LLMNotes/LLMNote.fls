@@ -229,9 +229,6 @@ INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.enc
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.enc
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.chr
 INPUT C:\Users\wyr95\AppData\Local\Programs\MiKTeX\tex\latex\cjk\UTF8\UTF8.chr
-INPUT .\LLMNote.aux
-INPUT .\LLMNote.aux
-INPUT LLMNote.aux
 OUTPUT LLMNote.aux
 OUTPUT LLMNote.out
 OUTPUT LLMNote.pdf
