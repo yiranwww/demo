@@ -6,7 +6,7 @@
 \usepackage[top=1in, bottom=1in, left=1.in, right=1.in]{geometry} % adjust default margins
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Yiran Wang}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
+\lhead{Yiran}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
 \setlength{\parindent}{0em}\setlength{\parskip}{1.5ex} % use newline to seperate paragraphs
 \usepackage[T1]{fontenc}     % oriented to output, that is, what fonts to use for printing characters % [must use] make ligatures copyable
 \usepackage{enumitem} %\setlist[itemize]{noitemsep,nolistsep} % same to use \begin{itemize}[nolistsep,noitemsep]
@@ -33,16 +33,19 @@
 \bibliographystyle{abbrv}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\phSay}[1]{\textcolor{blue}{#1}}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta, positioning, calc, fit, shapes.geometric}
+\usepackage{tikz-qtree}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Some Notes}
+\title{DS/ML 面试问题准备}
 \author{$:)$}
 \date{Updated on \today}
 
 \begin{document}
 \maketitle
 
-\section{DS/ML 面试问题准备}
+
 
 \section{Definition of 峰度 (Kurtosis) \& 偏度 (Skewness)}
 
@@ -91,6 +94,28 @@ Skewness $S$ & $>0$ & Right-skewed (tail right, peak left) \\
 \caption{Summary of Kurtosis and Skewness}
 \end{table}
 
+\subsection{中文辅助记忆点}
+\begin{itemize}
+    \item \textbf{Kurtosis (峰度)}: 描述分布尾部的尖锐程度或平坦程度
+    \begin{itemize}
+        \item $K < 0$: 平坦 (platykurtic) → 尾部轻，峰低
+        \item $K > 0$: 尖锐/尾重 (leptokurtic) → 尾部重，峰高
+        \item $K \approx 0$: 接近正态分布 (mesokurtic)
+    \end{itemize}
+    \item \textbf{Skewness (偏度)}: 描述分布左右偏斜
+    \begin{itemize}
+        \item $S > 0$: 右偏 (tail right, peak left)
+        \item $S < 0$: 左偏 (tail left, peak right)
+        \item $S \approx 0$: 接近对称
+    \end{itemize}
+    \item \textbf{记忆小技巧}:  
+    \begin{itemize}
+        \item 峰度想“高低胖瘦” → 尾部轻重 & 峰高低  
+        \item 偏度想“左右倾斜” → 尾部长在哪边
+    \end{itemize}
+\end{itemize}
+
+
 
 \section{Bias–Variance Tradeoff}
 
@@ -122,8 +147,10 @@ High bias means the model is too simple and underfits,
 
 \textbf{Answer:}
 
-It depends on the objective. Pointwise losses (like MSE or logistic loss) optimize individual relevance scores. Pairwise losses (like hinge loss or pairwise logistic loss) focus on the ordering between two items. Listwise losses (like softmax cross-entropy or LambdaRank) optimize the entire ranked list. For search and recommendation ranking, I often prefer pairwise or listwise losses since they directly reflect user behavior and ranking metrics such as NDCG.  
-
+It depends on the objective. Pointwise losses (like MSE or logistic loss) optimize individual relevance scores. 
+Pairwise losses (like hinge loss or pairwise logistic loss) focus on the ordering between two items. 
+Listwise losses (like softmax cross-entropy or LambdaRank) optimize the entire ranked list. 
+For search and recommendation ranking, I often prefer pairwise or listwise losses since they directly reflect user behavior and ranking metrics such as NDCG.
 \textbf{Definitions of Loss Functions:}
 
 \begin{itemize}
@@ -181,7 +208,11 @@ It depends on the objective. Pointwise losses (like MSE or logistic loss) optimi
 
 \textbf{Answer:}
 
-Feature leakage happens when information from the future or from the target leaks into the training features, giving the model unrealistic predictive power. For example, including “number of clicks in the next week” when predicting current engagement can create leakage. I usually check for leakage by using time-based validation, performing feature correlation analysis with the label, and simulating the real-time feature generation process to ensure features only include information available at prediction time.
+Feature leakage happens when information from the future or from the target leaks into the training features, 
+giving the model unrealistic predictive power. 
+For example, including “number of clicks in the next week” when predicting current engagement can create leakage. 
+I usually check for leakage by using time-based validation, performing feature correlation analysis with the label, 
+and simulating the real-time feature generation process to ensure features only include information available at prediction time.
 
 \textbf{How to detect feature leakage:}
 \begin{itemize}
@@ -204,6 +235,650 @@ Feature leakage happens when information from the future or from the target leak
         \end{itemize}
 \end{itemize}
 
+\section{Handling Cold-Start Problems in Recommendation Systems}
 
-\bibliography{reference}
+\textbf{Question:} How do you handle cold-start problems in recommendation systems?
+
+\textbf{Answer:}
+
+I handle cold-start problems using content-based or hybrid approaches. 
+For new users, I rely on demographic or session-based features, 
+while for new items, I use item metadata embeddings such as category or description text.
+ Once enough interactions accumulate, I switch to collaborative signals. 
+ In production, we often blend cold-start scores and collaborative filtering (CF) scores using a weighted strategy to ensure smooth recommendations.
+
+\textbf{Common Strategies:}
+\begin{itemize}
+    \item \textbf{New users:} Use demographic data (age, location) or session behaviors to estimate preferences.
+    \item \textbf{New items:} Leverage item metadata, embeddings from categories, descriptions, or textual features.
+    \item \textbf{Transition:} Gradually incorporate collaborative signals as user-item interactions grow.
+    \item \textbf{Production blending:} Combine cold-start model and CF-based model with weighted averaging or ensemble.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 冷启动问题 (Cold-Start Problem)
+    \item 新用户 → 人口统计/会话特征 (New users → Demographic/Session features)
+    \item 新物品 → 元数据嵌入 (New items → Metadata embeddings)
+    \item 后期 → 协同过滤信号 (Later → Collaborative signals)
+    \item 生产环境 → 加权融合冷启动 & CF (Production → Weighted blend Cold-start & CF)
+\end{itemize}
+
+
+\section{Evaluating Ranking Models}
+
+\textbf{Question:} How do you evaluate ranking models?
+
+\textbf{Answer:}
+
+I use metrics that reflect ranking quality, such as NDCG@K, MAP, Recall@K, and Precision@K. NDCG is my favorite because it considers both relevance and position. Offline evaluation is typically followed by A/B testing to validate real-world performance, such as CTR or conversion uplift. Additionally, confusion tables can help evaluate ranking-related classification tasks if items are binarized as relevant/non-relevant.
+
+\textbf{Definitions and Formulas:}
+
+\begin{itemize}
+    \item \textbf{Confusion Table (for binary relevance):}
+    
+\begin{tabular}{c|c|c}
+ & Predicted Relevant & Predicted Non-Relevant \\
+\hline
+Actual Relevant & True Positive (TP) & False Negative (FN) \\
+Actual Non-Relevant & False Positive (FP) & True Negative (TN) \\
+\end{tabular}
+
+    \begin{itemize}
+     \item $\text{Accuracy} = \frac{TP+TN}{TP+FP+TN+FN}$
+        \item  $\text{Precision} = \frac{TP}{TP+FP}$
+        \item $\text{Recall} = \frac{TP}{TP+FN}$
+        \item $F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$
+    \end{itemize}
+
+
+    \item \textbf{TPR / FPR (True Positive Rate / False Positive Rate):}
+    \[
+    \text{TPR} = \frac{TP}{TP+FN}, \quad
+    \text{FPR} = \frac{FP}{FP+TN}
+    \]
+
+    \item \textbf{NDCG@K (Normalized Discounted Cumulative Gain):}
+    \[
+    \text{DCG@K} = \sum_{i=1}^{K} \frac{2^{rel_i} - 1}{\log_2(i+1)}, \quad
+    \text{NDCG@K} = \frac{\text{DCG@K}}{\text{IDCG@K}}
+    \]
+    where $rel_i$ is the relevance of item $i$ and IDCG@K is the ideal DCG.
+
+    \item \textbf{MAP (Mean Average Precision):}
+    \[
+    \text{AP} = \frac{\sum_{k=1}^{N} P(k) \cdot rel(k)}{\text{number of relevant items}}, \quad
+    \text{MAP} = \frac{1}{M} \sum_{j=1}^{M} \text{AP}_j
+    \]
+    where $P(k)$ is the precision at position $k$, $rel(k)$ is 1 if relevant, else 0, and $M$ is the number of queries.
+\end{itemize}
+
+\textbf{ROC Curve (示意图):}
+\[
+\begin{tikzpicture}[scale=1.2]
+% Axes
+\draw[->] (0,0) -- (6,0) node[right]{FPR};
+\draw[->] (0,0) -- (0,6) node[above]{TPR};
+
+% Grid
+\foreach \i in {1,2,3,4,5} {
+    \draw[dashed, gray!30] (\i,0) -- (\i,5);
+    \draw[dashed, gray!30] (0,\i) -- (5,\i);
+}
+
+% Random classifier line
+\draw[dashed, gray] (0,0) -- (5,5) node[midway, above, sloped]{Random classifier};
+
+% ROC Curve
+\draw[thick, red] (0,0) .. controls (1,0.8) and (2,2.5) .. (3,3.8) .. controls (4,4.5) .. (5,5) node[right]{ROC Curve};
+
+% Threshold points
+\filldraw[blue] (1,0.8) circle (2pt) node[left]{t1};
+\filldraw[blue] (2,2.5) circle (2pt) node[left]{t2};
+\filldraw[blue] (3,3.8) circle (2pt) node[left]{t3};
+\end{tikzpicture}
+\]
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 排序指标 (Ranking metrics)
+    \item NDCG@K → 考虑相关性 & 排名位置
+    \item MAP → 平均精度
+    \item Recall@K, Precision@K → 前K命中率 & 精准率
+    \item 混淆表 (Confusion Table) → TP, FP, TN, FN
+    \item Accuracy → 准确率, Precision → 精确率, Recall → 召回率, F1 → 综合指标
+    \item TPR / FPR → 真阳性率 / 假阳性率
+    \item ROC 曲线 → 评估二分类排序能力
+    \item 离线评估 → A/B 测试验证 CTR/Conversion
+\end{itemize}
+
+
+\section{Designing Features for User Behavior Logs}
+
+\textbf{Question:} How do you design features for user behavior logs?
+
+\textbf{Answer:}
+
+I start by defining the prediction target — for example, next-click or purchase intent. Then I extract user-level, item-level, and contextual features such as recency, frequency, dwell time, device type, etc. For time-related data, I use time decay or sequence embedding to capture temporal patterns. I also ensure feature freshness by automating updates via data pipelines.
+
+\textbf{Definitions of Key Techniques:}
+
+\begin{itemize}
+    \item \textbf{Time Decay:}  
+    Weights more recent user actions higher to reflect current interests. A common formulation:
+    \[
+    w_i = e^{-\lambda \Delta t_i}
+    \]
+    where $\Delta t_i$ is the time elapsed since action $i$, and $\lambda$ is the decay rate.
+    
+    \item \textbf{Sequence Embedding:}  
+    Represents a sequence of user actions as a dense vector, capturing temporal patterns and dependencies.  
+    Example using embedding function $f$:
+    \[
+    \mathbf{v}_u = f(a_1, a_2, ..., a_T)
+    \]
+    where $a_t$ are sequential actions, and $\mathbf{v}_u$ is the user sequence embedding.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 特征设计目标 (Define prediction target)
+    \item 用户级特征 (User-level features)
+    \item 物品级特征 (Item-level features)
+    \item 上下文特征 (Contextual features) → recency, frequency, dwell time, device
+    \item 时间相关特征 (Time-related features)
+        \begin{itemize}
+            \item Time Decay → 最近行为权重更高 (Recent actions weighted more)
+            \item Sequence Embedding → 行为序列向量表示 (Sequence of actions → dense vector)
+        \end{itemize}
+    \item 特征更新自动化 (Feature freshness via pipelines)
+\end{itemize}
+
+\section{Handling Large Categorical Features}
+
+\textbf{Question:} How do you handle large categorical features like millions of product IDs?
+
+\textbf{Answer:}
+
+I usually use embedding representations instead of one-hot encoding. For high-cardinality IDs, we can apply frequency thresholding, hashing, or learn embeddings via models like Word2Vec or DeepFM. This approach not only reduces dimensionality but also captures semantic relationships between items.
+
+\textbf{Key Techniques:}
+
+\begin{itemize}
+    \item \textbf{Embedding Representations:} Map each categorical ID to a dense vector in lower-dimensional space.  
+    \[
+    \mathbf{v}_i \in \mathbb{R}^d \quad \text{for each item } i
+    \]
+
+    \item \textbf{Frequency Thresholding:} Replace rare IDs with an "other" category to reduce sparsity.
+
+    \item \textbf{Hashing:} Map IDs into a fixed-size hash space to avoid huge one-hot vectors.
+
+    \item \textbf{Learned Embeddings:} Use models like Word2Vec, DeepFM, or other neural networks to learn embeddings that capture item relationships.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 大类目特征 (Large categorical features)
+    \item One-hot 编码太大 (One-hot too sparse/high-dimensional)
+    \item Embedding → 降维 + 捕捉语义关系 (Dimensionality reduction + semantic capture)
+    \item 高基数处理方法 (High-cardinality methods):
+        \begin{itemize}
+            \item 频次阈值 (Frequency thresholding)
+            \item 哈希 (Hashing)
+            \item 学习型嵌入 (Learned embeddings, e.g., Word2Vec, DeepFM)
+        \end{itemize}
+\end{itemize}
+
+
+\section{Handling Models that Perform Poorly Online Despite Good Training}
+
+\textbf{Question:} What’s your approach when your model trains well but performs poorly online?
+
+\textbf{Answer:}
+
+I would first check for data mismatch between training and serving (feature drift). Then I’d verify that offline metrics align with online KPIs and ensure the A/B test setup is valid. Often the issue lies in feature staleness, data leakage, distributional shift, or model overfitting.
+
+\textbf{Potential Causes and Checks:}
+
+\begin{itemize}
+    \item \textbf{Feature Drift:} The distribution of features changes between training and serving.  
+    \[
+    P_{\text{train}}(X) \neq P_{\text{serving}}(X)
+    \]
+
+    \item \textbf{Data Leakage:} Information from the future or the target leaks into training features, giving unrealistic predictive power.
+
+    \item \textbf{Distributional Shift:} Overall change in input or target distribution between training and deployment.
+
+    \item \textbf{Model Overfitting:} Model fits training data too well but generalizes poorly.
+
+    \item \textbf{Offline vs Online Misalignment:} Offline metrics may not fully reflect online KPIs like CTR or conversion.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 训练好但线上差 (Good training, poor online)
+    \item 数据不匹配 → 特征漂移 (Feature drift)
+    \item 特征过期 (Feature staleness)
+    \item 数据泄漏 (Data leakage)
+    \item 分布变化 (Distributional shift)
+    \item 模型过拟合 (Overfitting)
+    \item 离线指标与线上 KPI 对齐 (Offline vs Online metric alignment)
+    \item A/B 测试验证是否正确 (Validate A/B test setup)
+\end{itemize}
+
+\section{Monitoring Model Degradation or Drift in Production}
+
+\textbf{Question:} How do you monitor model degradation or drift in production?
+
+\textbf{Answer:}
+
+I monitor both input feature drift (using statistical tests like KS divergence) and output drift (changes in prediction distributions). I also track business metrics such as CTR, conversion, and latency. When drift exceeds predefined thresholds, we trigger retraining or human review through the MLOps pipeline.
+
+\textbf{Key Concepts and Definitions:}
+
+\begin{itemize}
+    \item \textbf{Feature Drift / Input Drift:} Changes in the input feature distribution over time. Can be measured using tests like Kolmogorov–Smirnov (KS) divergence.
+    \[
+    D_{KS} = \sup_x |F_{\text{train}}(x) - F_{\text{prod}}(x)|
+    \]
+
+    \item \textbf{Output Drift / Prediction Drift:} Changes in the distribution of model predictions, which may indicate performance degradation.
+
+    \item \textbf{Conversion:} A business metric indicating successful user action (e.g., purchase, signup).  
+    \[
+    \text{Conversion Rate} = \frac{\text{Number of Conversions}}{\text{Number of Impressions or Visitors}}
+    \]
+
+    \item \textbf{Latency:} Time taken for the model to generate predictions, usually measured in milliseconds.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 监控模型退化/漂移 (Monitor degradation/drift)
+    \item 特征漂移 (Feature/Input drift) → KS 检验
+    \item 输出漂移 (Output/Prediction drift)
+    \item 业务指标 (Business metrics) → CTR, 转化率 (Conversion), 延迟 (Latency)
+    \item 阈值触发 (Threshold) → 重新训练或人工审核
+    \item MLOps 流程 (MLOps pipeline)
+\end{itemize}
+
+
+\section{Designing and Interpreting an A/B Test for a Recommendation Model}
+
+\textbf{Question:} How do you design and interpret an A/B test for a recommendation model?
+
+\textbf{Answer:}
+
+I split traffic randomly into control and treatment groups, 
+ensuring similar user distributions. Key metrics include CTR, conversion rate, dwell time, etc.
+ I calculate p-values and confidence intervals to test statistical significance. 
+ If the uplift is consistent across segments and significant, we proceed to rollout.
+  Otherwise, I check the experiment setup, seasonality, and sample size.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 随机分流 (Random traffic split) → control vs treatment
+    \item 保证用户分布相似 (Ensure similar user distributions)
+    \item 关键指标 (Key metrics) → CTR, 转化率 (Conversion rate), 停留时间 (Dwell time)
+    \item 统计显著性 (Statistical significance) → p-value, 置信区间 (Confidence interval)
+    \item 分段一致性 (Uplift consistent across segments)
+    \item 若不显著 → 检查实验设置、季节性、样本量 (Check setup, seasonality, sample size)
+\end{itemize}
+
+\section{P-test and Z-test Definitions and Relationship}
+
+\subsection{Z-test}
+Z-test is a statistical test used to determine if there is a significant difference between sample mean(s) and population mean (or between two sample means) when the population variance is known.  
+
+\textbf{Formula (one-sample Z-test):}
+\[
+Z = \frac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}
+\]
+where 
+\begin{itemize}
+    \item $\bar{X}$ = sample mean
+    \item $\mu_0$ = population mean
+    \item $\sigma$ = population standard deviation
+    \item $n$ = sample size
+\end{itemize}
+
+\subsection{P-value (P-test)}
+P-value is the probability of observing a test statistic at least as extreme as the one observed, under the null hypothesis $H_0$. It quantifies the evidence against $H_0$.  
+
+\textbf{Decision rule:}  
+\begin{itemize}
+    \item If $p \le \alpha$ (significance level), reject $H_0$.
+    \item If $p > \alpha$, fail to reject $H_0$.
+\end{itemize}
+
+\subsection{Relationship between Z-test and P-value}
+\begin{itemize}
+    \item Z-test produces a test statistic $Z$.
+    \item The P-value is computed from $Z$ as the probability of observing a value as extreme or more extreme under $H_0$:
+    \[
+    p = 2 \cdot P(Z \ge |z_{\text{obs}}|) \quad \text{(two-tailed)}
+    \]
+    \item Therefore, Z-test provides the test statistic, and P-test (P-value) provides the significance measure.
+\end{itemize}
+
+\subsection{中文关键词辅助记忆}
+\begin{itemize}
+    \item Z检验 (Z-test) → 样本均值与总体均值差异检验 (Known population variance)
+    \item P值 (P-value) → 在零假设下观测极端值的概率 (Evidence against $H_0$)
+    \item 决策规则 (Decision rule) → $p \le \alpha$ 拒绝 $H_0$
+    \item 关系 (Relationship) → Z-test 产生统计量，P-test 给出显著性
+\end{itemize}
+
+\section{Handling Popularity Bias in Recommendation Systems}
+
+\textbf{Question:} How would you handle “popularity bias” in a recommender?
+
+\textbf{Answer:}
+
+I’d reweight training data or apply negative sampling to reduce dominance of popular items. Another way is to regularize by item exposure frequency, or use fairness-aware objectives. In ranking, I might mix a small fraction of exploration items to ensure long-tail coverage.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 流行度偏差 (Popularity bias) → 热门物品占主导，冷门被忽略
+    \item 重加权训练数据 (Reweight training data) → 降低热门权重
+    \item 负采样 (Negative sampling) → 平衡正负样本比例
+    \item 按曝光频次正则化 (Regularize by item exposure frequency)
+    \item 公平性目标 (Fairness-aware objectives)
+    \item 排序中加入探索项 (Exploration items) → 扩展长尾覆盖 (Long-tail coverage)
+\end{itemize}
+
+\section{Feature Selection Methods}
+
+\textbf{Question:} How do you select important features for your model?
+
+\textbf{Answer:}
+
+I combine domain knowledge and data-driven selection. Statistically, I use correlation analysis, permutation importance, or SHAP values. In tree-based models, feature importance is straightforward; in deep models, I rely on embedding visualization and attention weights. I also prune redundant features to reduce overfitting and serving latency.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 专业知识结合数据驱动 (Domain knowledge + data-driven)
+    \item 统计方法：相关分析 (Correlation), Permutation Importance, SHAP
+    \item 树模型：特征重要性直观 (Feature importance)
+    \item 深度模型：嵌入可视化与注意力权重 (Embedding visualization, attention weights)
+    \item 特征剪枝 (Feature pruning)：减少过拟合与推理延迟
+\end{itemize}
+
+\section{Collaborative Filtering vs. Matrix Factorization}
+
+\textbf{Question:} What’s the difference between collaborative filtering and matrix factorization?
+
+\textbf{Answer:}
+
+Collaborative filtering (CF) uses user-item interactions to infer similarity, while matrix factorization (MF) explicitly learns latent vectors for users and items such that their dot product approximates observed interactions. MF is essentially a parameterized form of CF that’s easier to extend with regularization and side features.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item CF：基于用户–物品交互的相似性 (user-item similarity)
+    \item MF：学习用户与物品的潜在向量 (latent vectors)，用内积近似交互
+    \item 关系：MF 是 CF 的参数化版本，可扩展正则化与侧信息 (regularization, side features)
+\end{itemize}
+
+
+
+\section{Combining Offline and Online Evaluation for Personalization Models}
+
+\textbf{Question:} How do you combine offline and online evaluation for personalization models?
+
+\textbf{Answer:}
+
+Offline metrics like NDCG or AUC help filter out poor candidates quickly.  
+However, only A/B tests capture true business impact.  
+I usually promote a model only if offline metrics improve and online KPIs (like CTR, conversion) show statistically significant uplift.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item Offline：NDCG、AUC 等指标 → 快速筛选模型质量
+    \item Online：A/B 测试 → 衡量实际业务效果 (CTR, Conversion)
+    \item 策略：离线提升 + 在线显著提升 → 才晋级上线
+\end{itemize}
+
+
+\section{Common Sources of Data Leakage in User Engagement Data}
+
+\textbf{Question:} What are some common sources of data leakage in user engagement data?
+
+\textbf{Answer:}
+
+\begin{itemize}
+    \item Using post-event features like “total clicks after purchase”.
+    \item Aggregations that include future time windows.
+    \item Improper joins between train/test sets.
+\end{itemize}
+
+I prevent leakage by building time-based splits and verifying that only past data is accessible during training.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item 未来信息泄露：例如「购买后点击数」或「未来窗口聚合」。
+    \item 错误的连接：训练集与测试集之间不当的 join。
+    \item 预防策略：基于时间的切分 (time-based split)，确保模型训练只访问历史数据。
+\end{itemize}
+
+
+\section{Designing a Hybrid Recommender}
+
+\textbf{Question:} How would you design a hybrid recommender?
+
+\textbf{Answer:}
+
+I’d blend collaborative filtering and content-based signals.  
+For example, CF captures behavioral similarity, while content models handle cold-start.  
+The blending can be linear (weighted average) or learned via a meta-model that optimizes CTR.  
+In Sam’s Club, this can help balance personalization with item diversity.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item \textbf{结合两类信号：} 协同过滤 (CF) + 内容特征 (Content-based)。
+    \item \textbf{互补优势：} CF 擅长个性化与行为相似度；内容模型解决冷启动问题。
+    \item \textbf{融合方式：} 线性加权或通过元模型 (meta-model) 学习最优组合。
+    \item \textbf{业务意义：} 在 Sam’s Club 等场景中平衡推荐的个性化与多样性。
+\end{itemize}
+
+
+\section{Regularization and Its Importance}
+
+\textbf{Question:} What is regularization and why is it important?
+
+\textbf{Answer:}
+
+Regularization adds a penalty to model complexity, helping to prevent overfitting.  
+L1 promotes sparsity and feature selection; L2 smooths weights and stabilizes training.  
+In deep models, techniques like dropout or batch normalization also act as regularizers.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item \textbf{目的：} 防止过拟合（overfitting），控制模型复杂度。
+    \item \textbf{L1 正则化：} 促进稀疏性（sparsity），用于特征选择。
+    \item \textbf{L2 正则化：} 平滑权重（smooth weights），提升训练稳定性。
+    \item \textbf{深度模型中的正则化手段：} Dropout（随机失活）和 Batch Normalization（批归一化）。
+    \item \textbf{核心思路：} 降低模型对训练数据噪声的敏感性，提高泛化能力。
+\end{itemize}
+
+
+\section{Handling Missing or Noisy Data in Behavioral Datasets}
+
+\textbf{Question:} How do you handle missing or noisy data in behavioral datasets?
+
+\textbf{Answer:}
+
+For missing values, the approach depends on the data and task context.  
+If the dataset is large, dropping a small portion of rows with missing values usually has minimal impact, so I might choose to remove them.  
+If dropping data is not feasible, I’d consider imputation strategies — for example, using the mean or median for numerical features, or applying more advanced interpolation methods if appropriate.  
+
+For noisy data, my first step is to check if the noise can be directly filtered out — for example, by fitting a normal distribution to detect outliers or applying denoising techniques like FFT.  
+If that’s not possible, I analyze the characteristics of the noise and consider smoothing techniques.  
+If neither works, I use models that are robust to noise, such as tree-based models or regularized regression, depending on the task.
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item \textbf{缺失值 (Missing Data):}
+    \begin{itemize}
+        \item 数据量大时可直接删除（drop rows）。
+        \item 不可删除时使用 \textbf{插补 (imputation)}：
+        \begin{itemize}
+            \item 均值 / 中位数填充 (mean/median imputation)
+            \item 插值法 (interpolation)
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{噪声数据 (Noisy Data):}
+    \begin{itemize}
+        \item 通过正态分布拟合检测异常值 (fit normal distribution for outlier detection)。
+        \item 使用 \textbf{FFT（快速傅里叶变换）} 去噪。
+        \item 使用平滑方法 (smoothing)。
+        \item 采用对噪声鲁棒的模型：
+        \begin{itemize}
+            \item Tree-based models（如 XGBoost, Random Forest）
+            \item Regularized regression（正则化回归）
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{核心思路：}  
+    缺失值 → 补；噪声 → 滤或换稳健模型。  
+    （Filter noise, Fill missing, Choose robust models）
+\end{itemize}
+
+
+\section{Common Recommendation Algorithms}
+
+\textbf{Question:} 请讲讲你熟悉的推荐算法有哪些？（CF, MF, Deep Learning-based等）
+
+\textbf{Answer:}
+
+I’m familiar with several types of recommendation algorithms.  
+
+\begin{itemize}
+    \item \textbf{Collaborative Filtering (CF):}  
+    Includes user-based and item-based approaches.  
+    Predicts a user's preference based on similar users or items.  
+    Matrix Factorization (MF) methods like \textbf{SVD} or \textbf{ALS} learn latent factors representing users and items to capture hidden interactions.
+
+    \item \textbf{Content-Based Methods:}  
+    Recommend items similar to what a user liked before, based on explicit item features (e.g., category, description, or embedding vectors).
+
+    \item \textbf{Deep Learning-based Methods:}  
+    Modern neural architectures improve representation learning and personalization:
+    \begin{itemize}
+        \item \textbf{Wide \& Deep}, \textbf{DeepFM} — effective for CTR prediction, combining memorization and generalization.
+        \item \textbf{GRU4Rec}, \textbf{SASRec} — sequential models capturing temporal dependencies in user sessions.
+        \item \textbf{LightGCN} — graph-based model capturing high-order connectivity between users and items.
+    \end{itemize}
+
+    \item \textbf{Hybrid Methods:}  
+    Combine CF and content-based models to balance personalization, diversity, and handle the cold-start problem.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item \textbf{协同过滤 (CF):} 用户-物品相似度；分为User-based / Item-based。
+    \item \textbf{矩阵分解 (MF):} SVD, ALS —— 提取隐向量 (latent factors)。
+    \item \textbf{内容推荐 (Content-based):} 根据物品特征找相似内容。
+    \item \textbf{深度学习推荐:}
+        \begin{itemize}
+            \item Wide\&Deep, DeepFM → CTR预测；
+            \item GRU4Rec, SASRec → 序列建模；
+            \item LightGCN → 图关系挖掘。
+        \end{itemize}
+    \item \textbf{混合推荐 (Hybrid):} 综合优点；解决冷启动 + 提升多样性。
+\end{itemize}
+
+
+\section{Cold-Start User Recommendation Strategies}
+
+\textbf{Question:} 如果一个用户是新注册的（cold-start），你会怎么解决推荐问题？
+
+\textbf{Answer:}
+
+For cold-start users with no interaction history, there are several approaches I’d consider:
+
+\begin{itemize}
+    \item \textbf{Demographic or Content-Based Recommendation:}  
+    Use registration information such as age, gender, or interest tags to match users with similar profiles or recommend relevant items based on content similarity.
+
+    \item \textbf{Popularity-Based or Trending Items:}  
+    Recommend globally popular or trending products when personalization is not yet possible.  
+    This approach is simple and ensures user engagement at early stages, though personalization is limited.
+
+    \item \textbf{Onboarding Questionnaires or Surveys:}  
+    Collect initial user preferences during registration through short surveys or quizzes,  
+    then assign users to predefined clusters or segments for personalized recommendations.
+
+    \item \textbf{Contextual Recommendations:}  
+    Utilize contextual data such as location, device type, time of day, or session behavior to recommend items that are relevant in the current context.
+
+    \item \textbf{Embedding-Based Approach:}  
+    If we have a learned user-attribute embedding model, we can map the new user's attributes into the latent space and recommend nearest-neighbor items, achieving better personalization than pure popularity-based methods.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item \textbf{人口学/内容推荐：} 用年龄、性别、兴趣等信息匹配相似用户或物品。
+    \item \textbf{热门推荐：} 推荐热门或趋势物品（简单但无个性化）。
+    \item \textbf{问卷收集偏好：} 注册时通过问卷或选择标签收集初步兴趣。
+    \item \textbf{上下文推荐：} 利用地理位置、设备类型、时间等上下文信息。
+    \item \textbf{Embedding推荐：} 用属性嵌入映射到隐空间，找最近邻物品。
+\end{itemize}
+
+
+\section{Hyperparameter Optimization for Random Forest and XGBoost}
+
+\textbf{Question:} How to optimize Hyperparameters for Random Forest and XGB?
+
+\textbf{Answer:}
+
+\textbf{Random Forest (RF) Key Hyperparameters:}
+\begin{itemize}
+    \item \textbf{n\_estimators:} Number of trees in the forest.
+    \item \textbf{max\_depth:} Maximum depth of each tree.
+    \item \textbf{min\_samples\_split / min\_samples\_leaf:} Control overfitting by limiting splits and leaf size.
+    \item \textbf{max\_features:} Number of features considered when splitting nodes.
+\end{itemize}
+
+\textbf{XGBoost (XGB) Key Hyperparameters:}
+\begin{itemize}
+    \item \textbf{n\_estimators / num\_boost\_round:} Number of trees.
+    \item \textbf{max\_depth:} Maximum depth of each tree.
+    \item \textbf{learning\_rate / eta:} Step size shrinkage to prevent overfitting.
+    \item \textbf{subsample / colsample\_bytree:} Control overfitting by row/column sampling.
+    \item \textbf{reg\_alpha / reg\_lambda:} L1/L2 regularization terms.
+\end{itemize}
+
+\textbf{Optimization Approaches:}
+\begin{itemize}
+    \item Grid Search: Exhaustively search a predefined parameter grid.
+    \item Random Search: Randomly sample hyperparameters; faster for large search spaces.
+    \item Bayesian Optimization / Hyperopt / Optuna: Model-based, sample-efficient optimization.
+\end{itemize}
+
+\textbf{Practical Tips:}
+\begin{itemize}
+    \item Start with coarse search, then fine-tune promising ranges.
+    \item For RF: Increase n\_estimators and adjust max\_depth to reduce overfitting.
+    \item For XGB: Tune learning\_rate with n\_estimators, and adjust regularization parameters to control overfitting.
+\end{itemize}
+
+\textbf{中文关键词辅助记忆:}
+\begin{itemize}
+    \item \textbf{RF超参数:} 树数量、最大深度、最小分裂/叶子样本数、特征数
+    \item \textbf{XGB超参数:} 树数量、最大深度、学习率、采样比率、正则化参数
+    \item \textbf{调参方法:} Grid Search (网格搜索), Random Search (随机搜索), Bayesian Optimization / Hyperopt / Optuna (贝叶斯优化)
+    \item \textbf{实践经验:} 粗调 → 精调；RF: 增加树数量 + 调整 max\_depth；XGB: 调整 learning\_rate + n\_estimators，正则化控制过拟合
+\end{itemize}
+
+
+
+
+
+
+
+% \bibliography{reference}
 \end{document}
