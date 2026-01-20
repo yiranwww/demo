@@ -1,4 +1,4 @@
-1. If running time is too long, try to transfer Pandas into Numpy
+1. If running time is too long, try to transfer *Pandas* into *Numpy*
 
 2.  Jaccard Similarity:
    ```
@@ -11,3 +11,6 @@ test = len(np.intersect1d(a.values, b.values))/ len(np.union1d(a.values, b.value
 
 print(test)
 ```
+*intersect1d* Return the sorted, unique values that are in both of the input arrays.
+即返回数组中的原始值。如果需要计算ratio或个数需要用*len（）*。
+*union1d* 返回两个数组的所有去重值。类似Sql里面的Join。
