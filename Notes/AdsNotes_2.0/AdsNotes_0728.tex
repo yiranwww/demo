@@ -1,0 +1,53 @@
+% !TeX root = Notes.tex
+
+\documentclass{article}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1in, bottom=1in, left=1.in, right=1.in]{geometry} % adjust default margins
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Yiran Wang}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
+\setlength{\parindent}{0em}\setlength{\parskip}{1.5ex} % use newline to seperate paragraphs
+\usepackage[T1]{fontenc}     % oriented to output, that is, what fonts to use for printing characters % [must use] make ligatures copyable
+\usepackage{enumitem} %\setlist[itemize]{noitemsep,nolistsep} % same to use \begin{itemize}[nolistsep,noitemsep]
+\usepackage[ampersand]{easylist} % ampersand == & % \begin{easylist}[itemize] %% to make easy list environment
+\usepackage{amsmath,amssymb,bm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,breaklinks=true]{hyperref} % color the hyperlink rather than box it
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[all]{hypcap} % make the hyperlink to point at the upper border of a figure of table, rather than to point to its caption.
+\usepackage{breakcites}
+\usepackage{cleveref} \crefname{equation}{Eq.}{Eqs.} \Crefname{equation}{Equation}{Equations} \crefname{figure}{Fig.}{Figs.} \Crefname{figure}{Figure}{Figures} \crefname{table}{Table}{Tables} % allow refer to multiple equations and change cross-reference name
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{wasysym} % to insert emotion \smiley
+\usepackage{float} 
+\usepackage[yyyymmdd,hhmmss]{datetime}\renewcommand{\dateseparator}{-}
+\usepackage{placeins}
+%\usepackage{setspace} \doublespacing \onehalfspacing % 调整行距
+%\usepackage{pdflscape} \horizontal figure
+\usepackage{ulem}
+\usepackage{mathtools}
+\urlstyle{same}
+%\graphicspath{ {./Test_01/} }
+\bibliographystyle{abbrv}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Yiran}[1]{\textcolor{blue}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Ads Notes}
+\author{\mathfrak{Y} \mathfrak{R} }
+\date{Updated on \today}
+
+\begin{document}
+\maketitle
+\section{Ranking Score}
+
+Ranking Score = pCTR $\times$ pCVR $\times$ Bid = expected value
+
+Acution: rank ads by score
+
+User experiences is INCLUDED when considering pCTR. (用户)
+
+% \bibliography{reference}
+\end{document}
