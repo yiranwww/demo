@@ -1,53 +1,306 @@
+% % !TeX root = Notes.tex
+
+% \documentclass{article}
+% \usepackage{ctex}
+% \usepackage[utf8]{inputenc}
+% \usepackage[top=1in, bottom=1in, left=1.in, right=1.in]{geometry} % adjust default margins
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \lhead{Yiran Wang}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
+% \setlength{\parindent}{0em}\setlength{\parskip}{0.5ex} % use newline to seperate paragraphs
+% \usepackage[T1]{fontenc}     % oriented to output, that is, what fonts to use for printing characters % [must use] make ligatures copyable
+% \usepackage{enumitem} %\setlist[itemize]{noitemsep,nolistsep} % same to use \begin{itemize}[nolistsep,noitemsep]
+% \usepackage[ampersand]{easylist} % ampersand == & % \begin{easylist}[itemize] %% to make easy list environment
+% \usepackage{amsmath,amssymb,bm}
+% \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,breaklinks=true]{hyperref} % color the hyperlink rather than box it
+% \usepackage{graphicx}
+% \usepackage{color}
+% \usepackage[all]{hypcap} % make the hyperlink to point at the upper border of a figure of table, rather than to point to its caption.
+% \usepackage{breakcites}
+% \usepackage{cleveref} \crefname{equation}{Eq.}{Eqs.} \Crefname{equation}{Equation}{Equations} \crefname{figure}{Fig.}{Figs.} \Crefname{figure}{Figure}{Figures} \crefname{table}{Table}{Tables} % allow refer to multiple equations and change cross-reference name
+% \usepackage{caption}
+% \usepackage{subfigure}
+% \usepackage{wasysym} % to insert emotion \smiley
+% \usepackage{float} 
+% \usepackage[yyyymmdd,hhmmss]{datetime}\renewcommand{\dateseparator}{-}
+% \usepackage{placeins}
+% \usepackage{setspace} 
+% \singlespacing 
+% % \setstretch{0.9}
+% % \doublespacing \onehalfspacing % 调整行距
+% %\usepackage{pdflscape} \horizontal figure
+% \usepackage{ulem}
+% \usepackage{mathtools}
+% \urlstyle{same}
+% %\graphicspath{ {./Test_01/} }
+% \bibliographystyle{abbrv}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\Yiran}[1]{\textcolor{blue}{#1}}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \title{Ads Notes}
+% \author{\mathfrak{Y} \mathfrak{R} }
+% \date{Updated on \today}
+
 % !TeX root = Notes.tex
 
 \documentclass{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Language
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{ctex}
 \usepackage[utf8]{inputenc}
-\usepackage[top=1in, bottom=1in, left=1.in, right=1.in]{geometry} % adjust default margins
+\usepackage[T1]{fontenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header & Footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Yiran Wang}\chead{\reportNumber}\rhead{Rutgers Univ.}\lfoot{}\cfoot{\thepage}\rfoot{} % setting page header and footer
-\setlength{\parindent}{0em}\setlength{\parskip}{1.5ex} % use newline to seperate paragraphs
-\usepackage[T1]{fontenc}     % oriented to output, that is, what fonts to use for printing characters % [must use] make ligatures copyable
-\usepackage{enumitem} %\setlist[itemize]{noitemsep,nolistsep} % same to use \begin{itemize}[nolistsep,noitemsep]
-\usepackage[ampersand]{easylist} % ampersand == & % \begin{easylist}[itemize] %% to make easy list environment
+\lhead{Yiran Wang}
+\chead{\reportNumber}
+\rhead{Rutgers Univ.}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paragraph & Line Spacing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+\setstretch{0.95}              % slightly tighter than default
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.4ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lists
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}
+\setlist{
+    noitemsep,
+    topsep=2pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+\usepackage[ampersand]{easylist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath,amssymb,bm}
-\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,breaklinks=true]{hyperref} % color the hyperlink rather than box it
-\usepackage{graphicx}
-\usepackage{color}
-\usepackage[all]{hypcap} % make the hyperlink to point at the upper border of a figure of table, rather than to point to its caption.
-\usepackage{breakcites}
-\usepackage{cleveref} \crefname{equation}{Eq.}{Eqs.} \Crefname{equation}{Equation}{Equations} \crefname{figure}{Fig.}{Figs.} \Crefname{figure}{Figure}{Figures} \crefname{table}{Table}{Tables} % allow refer to multiple equations and change cross-reference name
-\usepackage{caption}
-\usepackage{subfigure}
-\usepackage{wasysym} % to insert emotion \smiley
-\usepackage{float} 
-\usepackage[yyyymmdd,hhmmss]{datetime}\renewcommand{\dateseparator}{-}
-\usepackage{placeins}
-%\usepackage{setspace} \doublespacing \onehalfspacing % 调整行距
-%\usepackage{pdflscape} \horizontal figure
-\usepackage{ulem}
 \usepackage{mathtools}
+
+% Reduce display math spacing
+\setlength{\abovedisplayskip}{6pt}
+\setlength{\belowdisplayskip}{6pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{placeins}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperlinks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    breaklinks=true
+]{hyperref}
+
+\usepackage[all]{hypcap}
+\usepackage{breakcites}
 \urlstyle{same}
-%\graphicspath{ {./Test_01/} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{cleveref}
+
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{equation}{Equation}{Equations}
+
+\crefname{figure}{Fig.}{Figs.}
+\Crefname{figure}{Figure}{Figures}
+
+\crefname{table}{Table}{Tables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{color}
+\usepackage{wasysym}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\renewcommand{\dateseparator}{-}
+\usepackage{ulem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{abbrv}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom Commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Yiran}[1]{\textcolor{blue}{#1}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \title{Ads Notes}
-\author{\mathfrak{Y} \mathfrak{R} }
+\author{YR}
 \date{Updated on \today}
+
 
 \begin{document}
 \maketitle
 \section{Ranking Score}
 
-Ranking Score = pCTR $\times$ pCVR $\times$ Bid = expected value
+In ads ranking, the ranking score is often estimated as:
+\[
+\text{Ranking Score} = \text{Bid} \times pCTR \times pCVR
+\]
+which represents the expected value (e.g., expected revenue) per impression.
 
-Acution: rank ads by score
+Auction: rank ads by score and determine which ads are shown and sometimes their prices. (展示广告的排序和位置)
 
-User experiences is INCLUDED when considering pCTR. (用户)
+User experiences will affect  when considering pCTR. 
 
+(User experiences 会影响CTR, 但另一方面来说，不能说pCTR直接受user experience影响，因为“图片吸引人”或者“标题具有引导性”都会提成pCTR但是用户体验是negative的)
+
+
+\section{Commonly used feature engineering}
+\begin{itemize}
+    \item user features
+        \subitem historical CTR, demographics, user embedding
+    \item ad features
+        \subitem creative(image, text, video features), ad history, ad category , historical performance
+    
+    \item Historical statistical features
+        \subitem user CTR over 1/7/30 days.
+        \subitem ad CTR by category , user-specific ad CTR
+    
+    \item cross features
+        \subitem user clicked the ads before? ( user $\times$ ad /category /advitiser)
+        \subitem user-ad interaction frequency
+    \item context features
+        \subitem time, device, position, hour of the day, connection type
+    \item features crossing for nonlinear relationship
+        \subitem user age $\times$ ad category 
+\end{itemize}
+
+    
+\section{常用训练模型}
+Increasing capability to model feature interaction
+\begin{itemize}
+    \item Logistic Regression: Linear model, suitable for sparse features. Relay heavily on manual feature engineering
+    \item LR+ feature crossing
+    \item GBDT (Gradient Boosted Decision Trees): 优势： automatic fetaure partitioning, nonlinear interactions, no feature scaling.\\
+    常用： XGboost, LightBGM
+    \item GBDT + LR
+
+    \item Deep CTR models: DeepFM / DCN (deep cross network). for low and high order interactions
+    \item DIN (deep Interest Network): Models users interests from \textbf{historical behaviour sequences} using attention.\\
+    eg: 点击历史，浏览历史，购买历史。
+    \item DIEN/Transformer-based models
+\end{itemize}
+
+\section{Cold Start}
+Modern approach: Content-based embeddings + representation learning
+
+For new ads:
+\begin{itemize}
+    \item content based features
+    \begin{itemize}
+        \item categorical features: advertiser-ID, category , campaign type
+        \item creative features: image(handle with CNN or Version Transformer), text embedding (ad title or description)
+        \item format features: video/ image, color, placement(广告位),...
+    \end{itemize}
+
+    
+    \item leverage similar ads
+    \begin{itemize}
+        \item build ad embedding share the same or similar category /advertiser-ID
+        \item use KNN in embedding space
+    \end{itemize}
+
+    \item exploration strategy
+    \begin{itemize}
+        \item user Thompson Sampling or Upper Confidence Bound (UCB) to initially show the ad to small and representative sample
+        \item start with prior  CTR (like category average value) and update 
+        \item For first 1000 impression, for example, on "exploration", then on real data.
+    \end{itemize}
+\end{itemize}
+
+For new user
+\begin{itemize}
+    \item contextual signals and request time
+    \begin{itemize}
+        \item Device models, OS, network type. time of day, location, languages, traffic source( from website/app/events...)
+    \end{itemize}
+
+    \item lookalike model
+    \begin{itemize}
+        \item nearest cluster of existing user
+    \end{itemize}
+
+    \item rapid adaptation: 新用户虽然一开始没有历史数据，但只要产生少量行为，就应该尽快利用这些行为更新模型对该用户的理解，而不是一直依赖默认画像。
+    \begin{itemize}
+        \item Continuously update user embeddings as interactions arrive.
+    \end{itemize}
+\end{itemize}
+
+Embeddings can be learned from historical click data using two-tower models, Word2Vec-style objectives, or deep CTR models.
+
+\section{案例分析： AUC improved  but revenue dropped}
+Suppose AUC improved 2\% but revenue droppoed 1\%. What will you do.
+
+\begin{itemize}
+    \item Immediate check:
+    \begin{itemize}
+        \item Data leaks?
+        \item verify feature distribution
+        \item check feature freshments 
+    \end{itemize}
+
+    \item Model behaviour analysis
+    \begin{itemize}
+        \item calibration check
+        \item segment-level analysis:
+        \begin{itemize}
+            \item Ad catagory: over predicted cheap ads
+            \item User segment: how traffic allocated to high/low vaue users
+            \item traffic sources: IOS/Android, different country. Compared with trained data
+        \end{itemize}
+        \item position bias
+    \end{itemize} 
+
+    \item Auction Dynamics
+    \begin{itemize}
+        \item Model may over-predicted CTR for low-bid ads, and under-predicted CTR for high-bid ads.（训练时便宜的多，贵的少，导致实际收益下降）
+        \item If in section-price auction, ranking = pCTR * bid. 
+        \item 
+    \end{itemize}
+\end{itemize}
 % \bibliography{reference}
 \end{document}
