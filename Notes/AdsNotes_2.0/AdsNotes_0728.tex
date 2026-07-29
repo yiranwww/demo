@@ -102,6 +102,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath,amssymb,bm}
 \usepackage{mathtools}
+% \usepackage{italicdiff}
 
 % Reduce display math spacing
 \setlength{\abovedisplayskip}{6pt}
@@ -280,7 +281,7 @@ Suppose AUC improved 2\% but revenue droppoed 1\%. What will you do.
     \begin{itemize}
         \item Data leaks?
         \item verify feature distribution
-        \item check feature freshments 
+        \item check feature freshness 
     \end{itemize}
 
     \item Model behaviour analysis
@@ -288,8 +289,8 @@ Suppose AUC improved 2\% but revenue droppoed 1\%. What will you do.
         \item calibration check
         \item segment-level analysis:
         \begin{itemize}
-            \item Ad catagory: over predicted cheap ads
-            \item User segment: how traffic allocated to high/low vaue users
+            \item Ad catagory: over predicted low-bid ads
+            \item User segment: how traffic allocated to different user segments? (high/low vaue users, new users, returning users)
             \item traffic sources: IOS/Android, different country. Compared with trained data
         \end{itemize}
         \item position bias
@@ -298,9 +299,110 @@ Suppose AUC improved 2\% but revenue droppoed 1\%. What will you do.
     \item Auction Dynamics
     \begin{itemize}
         \item Model may over-predicted CTR for low-bid ads, and under-predicted CTR for high-bid ads.（训练时便宜的多，贵的少，导致实际收益下降）
-        \item If in section-price auction, ranking = pCTR * bid. 
-        \item 
+        \begin{itemize}
+            \item Label imbalance. Model calibration error. Objective mismatch. Distribution shift.
+        \end{itemize}
+        \item If in section-price auction, ranking = pCTR * bid. \\
+        \begin{table}[H]
+        \begin{tabular}{llllll}
+            & Bid & True CTR & pCTR & Score & Revenue\\
+        Ad-A & 10   & 5\%      & 4\%  & 0.4   & 0.5\\
+        Ad-B & 3   & 8\%      & 15\%  & 0.45  & 0.24
+        \end{tabular}
+        \end{table}
+        We see, Ad-B has a higher score, but actually it gains less revenue than Ad-A.
+        \item Exploitation / reduced exploration. Reduced exploration may repeatedly expose similar ads, improving short-term CTR while hurting long-term revenue.\\
+         It may show fewer diverse ads or fewer diverse users based on previous data. (short-term CTR improved, AUC improved, but these users were exposed to repeated/similar context, which led to low conversion rate.)
+        \item Calibration: Poor calibration changes auction rankings even when AUC improves.
     \end{itemize}
 \end{itemize}
+
+How to fix:
+\begin{itemize}
+    \item Recalibrate the model using \textbf{isotonic regression or temperature scaling}
+    \item add a value-aware or bid-weighted loss function. loss function to penalize errors from high-bid ads
+    \item Implement poistion-aware training to account where ads apprear
+    \item AUC isn't everything. Monitor online metrics such as revenue, eCPM, CTR, CVR, and calibration in addition to AUC.
+    \item Online/Offline distribution shift. Was the offline validation set consistent with online traffic?
+\end{itemize}
+
+
+
+\section{Online Learning}
+\subsection{Type A: Incremental Learning (True Online)}
+Update model parameters after each sample or mini-batch.
+Incremental learning updates the model continuously as new data arrives, rather than retraining the model from scratch.
+
+Loss = cross-entropy(pred, Actual)
+
+Model.weights -= learning rate $\times$ gradient
+
+Pros: Pros: adapts quickly to distribution changes
+
+cons: noisy,  can forget old patterns.
+
+\subsubsection{复习： For multi-class classification.}
+
+
+For multi-class classification, the cross entropy loss is defined as:
+
+\begin{equation}
+    L=-\sum_{k=1}^{K}y_k\log(p_k)
+\end{equation}
+
+k: 类别索引index. K: 总类别数
+
+eg:\\
+True Label: [1,0,0]\\
+Pred 1: [0.7, 0.2, 0.1]\\
+Pred 2: [0.9, 0.05, 0.05]\\
+
+$L_1 = -[1 \times \log(0.7) + 0 + 0] = -\log(0.7) \approx 0.357$
+
+$L_2 = [-1 \times \log(0.9) + 0 + 0] = -\log(0.9) \approx 0.105$
+
+Pred 2 assigns a higher probability to the correct class and therefore has a lower cross-entropy loss.
+
+
+
+softmax function: 
+\begin{equation}
+    P_k = \frac{e^{z_k}}{\sum_{j = 1}^{K} e^{z_j}} 
+\end{equation}
+
+\begin{equation}
+    L = -\sum_{k = 1}^{K} y_k \log(\frac{e^{z_k}}{\sum_{j = 1}^{K} e^{z_j}} )
+\end{equation}
+
+
+\begin{equation}
+    \frac{\partial L}{\partial z_k}=P_k-y_k
+\end{equation}
+
+
+
+Bianry cross entropy loss:
+\begin{equation}
+    L_total = -\frac{1}{N} \sum_{n = 1}^{N} [y_n log(P_n) + (1-y_n) log(1-P_n)]   
+\end{equation}
+
+
+对于CTR Prediction， Sigmoid- Binary Cross Entropy - Gradient. 因为广告点击预测是binary classification.
+
+
+\subsection{Type B: Streaming Retraining (Most common in industry)}
+Keep the model architecture fixed, but periodically reinitialize and retrain using a rolling window of recent data.
+
+工业界常说： Periodic Retraining. Continuous Retraining. Rolling window Retraining.
+
+eg: Take last 7 days of data - retrain model from scratch - deploy new model.
+\begin{itemize}
+    \item Pros: Stable; adapts to recent data patterns, easy to monitor and deploy
+    \item Cons: High computational cost and delayed adaptation to sudden distribution shifts.
+ 今天发生的新趋势， 要下一轮训练才学到，比如新闻热点。
+\end{itemize}
+
+ \textbf{Widely used because it is easier to monitor, validate, and safely deploy than true online learning.}
+
 % \bibliography{reference}
 \end{document}
